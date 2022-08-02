@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1187613446446384426}
   - component: {fileID: 8534147964443614473}
   - component: {fileID: 3558976657064428461}
+  - component: {fileID: 3860374489397885392}
   m_Layer: 0
   m_Name: bullet1
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: f0cb00597aeb9ab4fa7f22a936857a6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,3 +121,20 @@ MonoBehaviour:
   MoveDir: {x: 0, y: 0}
   rb: {fileID: 8534147964443614473}
   speed: 5
+  bulletLifespan: 10
+--- !u!58 &3860374489397885392
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493583814799383413}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.30767816

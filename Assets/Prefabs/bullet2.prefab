@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6477304352819066044}
   - component: {fileID: -5151454339123690523}
   - component: {fileID: 5894404523471534698}
+  - component: {fileID: 1625129769988954591}
   m_Layer: 0
   m_Name: bullet2
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: cdcfaebdccd932643be71c704758a052, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -117,4 +118,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c0d792a1a138340a73f81055faf1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveDir: {x: 0, y: 0}
   rb: {fileID: -5151454339123690523}
+  speed: 5
+  bulletLifespan: 10
+--- !u!58 &1625129769988954591
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159707325091022634}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.43949467

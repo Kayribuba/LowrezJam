@@ -45,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     targetPosition.x = transform.position.x;
                 }
+                else if (col.CompareTag("Enemy"))
+                {
+                    targetPosition.x = transform.position.x;
+                    //31
+                }
             }
 
             collidedObjects = null;
@@ -62,6 +67,11 @@ public class PlayerMovement : MonoBehaviour
                 if (col.CompareTag("Wall"))
                 {
                     targetPosition.y = transform.position.y;
+                }
+                else if (col.CompareTag("Enemy"))
+                {
+                    targetPosition.y = transform.position.y;
+                    //31
                 }
             }
 
