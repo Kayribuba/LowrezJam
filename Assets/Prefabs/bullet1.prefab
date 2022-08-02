@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveDir: {x: 0, y: 0}
+  popAnim: {fileID: 1244294451522030946, guid: 56a7d962d1eab4447bad850922786afb, type: 3}
   rb: {fileID: 8534147964443614473}
   speed: 5
   bulletLifespan: 10

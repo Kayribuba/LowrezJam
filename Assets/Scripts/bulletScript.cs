@@ -3,16 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class bulletScript : MonoBehaviour
 {
     public Vector2 MoveDir;
+    [SerializeField] GameObject popAnim;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float speed = 5f;
     [SerializeField] float bulletLifespan = 10f;
-
-    [SerializeField] Animator animator;
-    [SerializeField] Animation animClip;
 
     float deathTargetTime = float.MaxValue;
 
@@ -43,6 +40,8 @@ public class bulletScript : MonoBehaviour
 
     private void DestroyBullet()
     {
+        if (popAnim != null)
+            Instantiate(popAnim, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
