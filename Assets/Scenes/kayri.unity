@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 95490695}
   - component: {fileID: 95490697}
   - component: {fileID: 95490694}
+  - component: {fileID: 95490698}
   m_Layer: 0
   m_Name: ev
   m_TagString: Enemy
@@ -245,8 +246,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5bf1e52246b5c44a7b9c6959a75c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 6
+  animations:
+  - {fileID: 7400000, guid: 423be4e0771e99e458cedacc7f77233a, type: 2}
+  - {fileID: 7400000, guid: 315634d88246d73408d85575b62007ff, type: 2}
+  - {fileID: 7400000, guid: fa82a7474d13a87498e2a6a35c3a374e, type: 2}
+  - {fileID: 7400000, guid: f57900ebf0e57e6419044278c7f5bfe7, type: 2}
+  - {fileID: 7400000, guid: 84c9b0211a9c1b74da1a463bcd4f591a, type: 2}
+  - {fileID: 7400000, guid: 5cd2e6466ba6bf94abf8d5a2b763aada, type: 2}
+  - {fileID: 7400000, guid: 5f87958b13e75c840aac7c199ce3521f, type: 2}
+  - {fileID: 7400000, guid: f51e8954d84e0764c82e6a13c308f863, type: 2}
+  - {fileID: 7400000, guid: 9b858301505d0ef48b4c69f6ce856665, type: 2}
+  - {fileID: 7400000, guid: 36f321db8b58e4b4790186d79d7caa6a, type: 2}
+  anim: {fileID: 95490698}
+  maxHealth: 15
   destroyAfterDeath: 1
+--- !u!111 &95490698
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95490693}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &144520065
 GameObject:
   m_ObjectHideFlags: 0
