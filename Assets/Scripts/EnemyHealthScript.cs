@@ -5,35 +5,29 @@ using UnityEngine;
 
 public class EnemyHealthScript : MonoBehaviour
 {
-    [SerializeField] AnimationClip[] animations;
-    [SerializeField] Animation anim;
+    [SerializeField] int treshold1 = 4;
+    [SerializeField] int treshold2 = 2;
+    [SerializeField] Animator animator;
 
     [SerializeField] float maxHealth = 6f;
     [SerializeField] bool destroyAfterDeath = true;
 
     float health;
-    int animPhase;
     bool dead;
 
     void Start()
     {
         health = maxHealth;
-
-        for(int i = 0; i < animations.Length; i++)
-        {
-            anim.AddClip(animations[i], "Phase" + i);
-        }
     }
 
     public void TakeDamage()
     {
         if (!dead)
         {
-            anim.Play("Phase"+animPhase);
-            if(animPhase < animations.Length)
-            animPhase++;
-
             health--;
+
+            CompareTreshold((int)health);
+
             Debug.Log($"Enemy {gameObject.name} lot health. Remaining health : {maxHealth}/{health}.");
 
             if (health <= 0)
@@ -43,7 +37,24 @@ public class EnemyHealthScript : MonoBehaviour
         }
     }
 
-    private void Die()
+    void CompareTreshold(int health)
+    {
+        if(health <= treshold1 && health > treshold2)
+        {
+            animator.SetInteger("Phase", 2);
+        }
+        if (health <= treshold2 && health > 0)
+        {
+            animator.SetInteger("Phase", 3);
+        }
+        if (health <= 0)
+        {
+            animator.SetInteger("Phase", 4);
+        }
+
+    }
+
+    void Die()
     {
         dead = true;
         Debug.Log($"Enemy {gameObject.name} has died.");
