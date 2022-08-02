@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float interval = 0.01f;
 
     Vector2 bgTopLeft;
+    Vector2 targetPosition;
     float gridSize;
     float targetTime = float.MinValue;
 
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (targetTime < Time.time)
         {
-            Vector2 targetPosition = transform.position;
+            targetPosition = transform.position;
 
             if (Input.GetKey(KeyCode.D))
                 targetPosition.x += gridSize;
@@ -39,10 +40,27 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.S))
                 targetPosition.y -= gridSize;
 
-            transform.position = targetPosition;
+            Collider2D[] collidedObjects = Physics2D.OverlapBoxAll(targetPosition, transform.lossyScale / 0.9f, 0);
 
-            targetTime = Time.time + interval;
+            bool continueMovement = true;
+            foreach(Collider2D col in collidedObjects)
+            {
+                if (col.CompareTag("Wall"))
+                    continueMovement = false;
+            }
+
+            if (continueMovement)
+            {
+                transform.position = targetPosition;
+                targetTime = Time.time + interval;
+            }
+
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(targetPosition, transform.lossyScale / 0.9f);
+    }
 }
