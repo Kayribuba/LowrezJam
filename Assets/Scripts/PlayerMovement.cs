@@ -35,32 +35,44 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.A))
                 targetPosition.x -= gridSize;
 
+            //,
+
+            Collider2D[] collidedObjects = Physics2D.OverlapBoxAll(targetPosition, transform.lossyScale * 0.9f, 0);
+
+            foreach (Collider2D col in collidedObjects)
+            {
+                if (col.CompareTag("Wall"))
+                {
+                    targetPosition.x = transform.position.x;
+                }
+            }
+
+            collidedObjects = null;
+            //
+
             if (Input.GetKey(KeyCode.W))
                 targetPosition.y += gridSize;
             else if (Input.GetKey(KeyCode.S))
                 targetPosition.y -= gridSize;
 
-            Collider2D[] collidedObjects = Physics2D.OverlapBoxAll(targetPosition, transform.lossyScale / 0.9f, 0);
+            collidedObjects = Physics2D.OverlapBoxAll(targetPosition, transform.lossyScale * 0.9f, 0);
 
-            bool continueMovement = true;
             foreach(Collider2D col in collidedObjects)
             {
                 if (col.CompareTag("Wall"))
-                    continueMovement = false;
+                {
+                    targetPosition.y = transform.position.y;
+                }
             }
 
-            if (continueMovement)
-            {
                 transform.position = targetPosition;
                 targetTime = Time.time + interval;
-            }
-
         }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(targetPosition, transform.lossyScale / 0.9f);
+        Gizmos.DrawWireCube(targetPosition, transform.lossyScale * 0.9f);
     }
 }
