@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthScript : MonoBehaviour
+public class StationaryEnemyHealthScript : MonoBehaviour
 {
     [SerializeField] int treshold1 = 4;
     [SerializeField] int treshold2 = 2;
     [SerializeField] Animator animator;
 
-    [SerializeField] float maxHealth = 6f;
+    [SerializeField] int maxHealth = 6;
     [SerializeField] bool destroyAfterDeath = true;
 
-    float health;
+    int health;
     bool dead;
 
     void Start()
@@ -26,7 +26,7 @@ public class EnemyHealthScript : MonoBehaviour
         {
             health--;
 
-            CompareTreshold((int)health);
+            CompareTreshold(health);
 
             Debug.Log($"Enemy {gameObject.name} lot health. Remaining health : {maxHealth}/{health}.");
 

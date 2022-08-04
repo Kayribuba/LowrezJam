@@ -33,7 +33,7 @@ public class bulletScript : MonoBehaviour
         }
         else if(collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyHealthScript>()?.TakeDamage();
+            collision.GetComponent<StationaryEnemyHealthScript>()?.TakeDamage();
             DestroyBullet();
         }
     }

@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum Dir { Left, Right, Up, Down, TopLeft, TopRight, BottomLeft, BottomRight }
-
 public class PlayerAttack : MonoBehaviour
 {
 
