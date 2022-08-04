@@ -8,7 +8,6 @@ public class StaEnAttack : MonoBehaviour
     [SerializeField] GameObject[] projectiles;
     [SerializeField] GameObject Barrel;
     [SerializeField] EnemyAttackPatern eap;
-    [SerializeField] AudioSource attackSFX;
 
     int eapsIndex = 0;
     float targetTime = float.MinValue;
@@ -18,8 +17,6 @@ public class StaEnAttack : MonoBehaviour
         if(targetTime <= Time.time)
         {
             EAPStruct currentStruct = eap.attackPatern[eapsIndex];
-
-            attackSFX.Play();
 
             List<Dir> usedDirs = new List<Dir>();
             System.Random rand = new System.Random();
