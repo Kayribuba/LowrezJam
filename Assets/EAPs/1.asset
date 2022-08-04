@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822f4f91626092b49be3bf90e20e5895, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  enemyAttackPatern: []
+  attackPatern:
+  - directionsToAttack: 0200000001000000
+    waitAfter: 0.2
+  - directionsToAttack: 00000000
+    waitAfter: 1
+  - directionsToAttack: 050000000600000006000000
+    waitAfter: 2

@@ -7,7 +7,7 @@ public enum Dir { Left, Right, Up, Down, TopLeft, TopRight, BottomLeft, BottomRi
 
 public class DirectionEnum : MonoBehaviour
 {
-    public Vector2 GetVector2DirFromEnum(Dir directionEnumName)
+    public static Vector2 GetVector2DirFromEnum(Dir directionEnumName)
     {
         Vector2 dir = Vector2.zero;
 

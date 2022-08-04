@@ -38,6 +38,8 @@ public class bulletScript : MonoBehaviour
         }
     }
 
+    public void SetFlightVector(Vector2 vector) => MoveDir = vector;
+
     private void DestroyBullet()
     {
         if (popAnim != null)
