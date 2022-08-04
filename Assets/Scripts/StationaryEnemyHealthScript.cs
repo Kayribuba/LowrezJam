@@ -26,14 +26,14 @@ public class StationaryEnemyHealthScript : MonoBehaviour
     {
         if (!dead)
         {
-            health--;
-
-            CompareTreshold(health);
-
             if (health > 0)
             {
                 AS.Play();
             }
+            health--;
+
+            CompareTreshold(health);
+
 
 
             Debug.Log($"Enemy {gameObject.name} lot health. Remaining health : {maxHealth}/{health}.");
