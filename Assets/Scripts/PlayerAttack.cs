@@ -123,5 +123,7 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawLine(transform.position, Functions.AddVector2sTogether(transform.position, weaponVector));
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, Functions.AddVector2sTogether(transform.position, snappedWeaponVector));
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(transform.position, new Vector3(0.15625f, 0.15625f, 1));
     }
 }

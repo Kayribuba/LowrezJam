@@ -35,7 +35,7 @@ public class DirectionEnum : MonoBehaviour
                 dir = new Vector2(-0.7f, -0.7f);
                 break;
             case Dir.TopLeft:
-                dir = new Vector2(-0.7f, -0.7f);
+                dir = new Vector2(-0.7f, 0.7f);
                 break;
         }
 

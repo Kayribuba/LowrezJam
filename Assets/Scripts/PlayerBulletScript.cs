@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerBulletScript : MonoBehaviour
 {
-    public Vector2 MoveDir;
     public GameObject parentGO;
     [SerializeField] GameObject popAnim;
     [SerializeField] Rigidbody2D rb;
@@ -58,10 +57,10 @@ public class PlayerBulletScript : MonoBehaviour
         if(Mathf.Abs(vector.x) > 0 && Mathf.Abs(vector.y) > 0)
         {
             vector /= 0.7f;
+            //waitTime /= 0.7f;
         }
 
-        MoveDir = vector;
-        movement = MoveDir * gridSize;
+        movement = vector * gridSize;
         moveTargetTime = Time.time + waitTime;
     }
     public void SetParentGO(GameObject parentObject)
