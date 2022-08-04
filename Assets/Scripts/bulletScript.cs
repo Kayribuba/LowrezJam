@@ -22,7 +22,7 @@ public class bulletScript : MonoBehaviour
     void Update()
     {
         if (deathTargetTime <= Time.time)
-            DestroyBullet();
+            Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
