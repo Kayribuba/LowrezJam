@@ -13,7 +13,30 @@ public class DirectionEnum : MonoBehaviour
 
         switch(directionEnumName)
         {
-            
+            case Dir.Left:
+                dir = Vector2.left;
+                break;
+            case Dir.Right:
+                dir = Vector2.right;
+                break;
+            case Dir.Up:
+                dir = Vector2.up;
+                break;
+            case Dir.Down:
+                dir = Vector2.down;
+                break;
+            case Dir.TopRight:
+                dir = new Vector2(0.7f, 0.7f);
+                break;
+            case Dir.BottomRight:
+                dir = new Vector2(0.7f, -0.7f);
+                break;
+            case Dir.BottomLeft:
+                dir = new Vector2(-0.7f, -0.7f);
+                break;
+            case Dir.TopLeft:
+                dir = new Vector2(-0.7f, -0.7f);
+                break;
         }
 
         return dir;

@@ -11,6 +11,9 @@ public class StaEnAttack : MonoBehaviour
 
     void Update()
     {
-        
+        if(targetTime <= Time.time)
+        {
+
+        }
     }
 }
