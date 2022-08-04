@@ -9,6 +9,7 @@ public class StationaryEnemyHealthScript : MonoBehaviour
     [SerializeField] int treshold1 = 4;
     [SerializeField] int treshold2 = 2;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource AS;
 
     [SerializeField] int maxHealth = 6;
     [SerializeField] bool destroyAfterDeath = true;
@@ -28,6 +29,12 @@ public class StationaryEnemyHealthScript : MonoBehaviour
             health--;
 
             CompareTreshold(health);
+
+            if (health > 0)
+            {
+                AS.Play();
+            }
+
 
             Debug.Log($"Enemy {gameObject.name} lot health. Remaining health : {maxHealth}/{health}.");
 
