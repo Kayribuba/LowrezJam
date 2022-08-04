@@ -26,19 +26,26 @@ public class bulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Wall"))
+        if (collision.gameObject != gameObject)
         {
-            DestroyBullet();
-        }
-        else if(collision.CompareTag("Enemy") && !isEnemyBullet)
-        {
-            collision.GetComponent<StationaryEnemyHealthScript>()?.TakeDamage();
-            DestroyBullet();
-        }
-        else if (collision.CompareTag("Player") && isEnemyBullet)
-        {
-            //deal damage to the player script
-            DestroyBullet();
+            if (collision.CompareTag("Wall"))
+            {
+                DestroyBullet();
+            }
+            else if (collision.CompareTag("Enemy"))
+            {
+                if (!isEnemyBullet)
+                    collision.GetComponent<StationaryEnemyHealthScript>()?.TakeDamage();
+
+                DestroyBullet();
+            }
+            else if (collision.CompareTag("Player") && isEnemyBullet)
+            {
+                if (isEnemyBullet)
+                    //deal damage to the player script
+
+                    DestroyBullet();
+            }
         }
     }
 
