@@ -10,6 +10,7 @@ public class bulletScript : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float speed = 5f;
     [SerializeField] float bulletLifespan = 10f;
+    [SerializeField] bool isEnemyBullet;
 
     float deathTargetTime = float.MaxValue;
 
@@ -29,9 +30,14 @@ public class bulletScript : MonoBehaviour
         {
             DestroyBullet();
         }
-        else if(collision.CompareTag("Enemy"))
+        else if(collision.CompareTag("Enemy") && !isEnemyBullet)
         {
             collision.GetComponent<StationaryEnemyHealthScript>()?.TakeDamage();
+            DestroyBullet();
+        }
+        else if (collision.CompareTag("Player") && isEnemyBullet)
+        {
+            //deal damage to the player script
             DestroyBullet();
         }
     }

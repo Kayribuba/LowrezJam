@@ -31,9 +31,14 @@ public class StaEnAttack : MonoBehaviour
 
                     usedDirs.Add(attackDir);
                 }
-
-                targetTime = currentStruct.waitAfter + Time.time;
             }
+
+            if (eapsIndex == eap.attackPatern.Length - 1)
+                eapsIndex = 0;
+            else
+                eapsIndex++;
+
+            targetTime = currentStruct.waitAfter + Time.time;
         }
     }
 }

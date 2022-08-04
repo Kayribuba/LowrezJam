@@ -17,5 +17,5 @@ MonoBehaviour:
     waitAfter: 0.2
   - directionsToAttack: 00000000
     waitAfter: 1
-  - directionsToAttack: 050000000600000006000000
+  - directionsToAttack: 05000000060000000100000006000000
     waitAfter: 2
