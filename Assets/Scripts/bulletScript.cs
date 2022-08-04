@@ -15,8 +15,6 @@ public class bulletScript : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = MoveDir * speed;
-
         deathTargetTime = Time.time + bulletLifespan;
     }
     void Update()
@@ -38,7 +36,11 @@ public class bulletScript : MonoBehaviour
         }
     }
 
-    public void SetFlightVector(Vector2 vector) => MoveDir = vector;
+    public void SetFlightVector(Vector2 vector)
+    {
+        MoveDir = vector;
+        rb.velocity = MoveDir * speed;
+    }
 
     private void DestroyBullet()
     {

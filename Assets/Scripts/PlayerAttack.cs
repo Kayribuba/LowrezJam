@@ -37,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
         {
             System.Random rand = new System.Random();
             GameObject WP = Instantiate(waterProjectile[rand.Next(0, waterProjectile.Length)], Barrel.transform.position, Quaternion.identity);
-            WP.GetComponent<bulletScript>().MoveDir = snappedWeaponVector;
+            WP.GetComponent<bulletScript>().SetFlightVector(snappedWeaponVector);
         }
     }
     Vector2 SnapNormalizedVector2To8WayGrid(Vector2 vector)

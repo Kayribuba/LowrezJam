@@ -27,7 +27,7 @@ public class StaEnAttack : MonoBehaviour
                     Barrel.transform.position = Functions.AddVector2sTogether(transform.position, DirectionEnum.GetVector2DirFromEnum(attackDir));
 
                     GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], Barrel.transform.position, Quaternion.identity);
-                    //bulletInstantiated.setFlightVector = attackdir;
+                    bulletInstantiated.GetComponent<bulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir));
 
                     usedDirs.Add(attackDir);
                 }
