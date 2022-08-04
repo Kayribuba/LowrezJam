@@ -349,7 +349,7 @@ MonoBehaviour:
   projectiles:
   - {fileID: 493583814799383413, guid: 0c70882a8dac6d348be397328fc1682a, type: 3}
   Barrel: {fileID: 162787242}
-  eap: {fileID: 11400000, guid: a22ba200b52391b429002fe87164650c, type: 2}
+  eap: {fileID: 11400000, guid: d0cf567c46ff47d45a6e60f63f3a5ae4, type: 2}
 --- !u!1 &735001483
 GameObject:
   m_ObjectHideFlags: 0

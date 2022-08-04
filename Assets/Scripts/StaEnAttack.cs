@@ -11,7 +11,13 @@ public class StaEnAttack : MonoBehaviour
 
     int eapsIndex = 0;
     float targetTime = float.MinValue;
+    float gridSize;
 
+
+    void Start()
+    {
+        gridSize = FindObjectOfType<GridSizer>().GetGridSize();
+    }
     void Update()
     {
         if(targetTime <= Time.time)
@@ -26,8 +32,13 @@ public class StaEnAttack : MonoBehaviour
                 {
                     Barrel.transform.position = Functions.AddVector2sTogether(transform.position, DirectionEnum.GetVector2DirFromEnum(attackDir));
 
+                    Vector2 barrelCorrectorVector = Barrel.transform.position;
+                    barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
+                    barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
+                    Barrel.transform.position = barrelCorrectorVector;
+
                     GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], Barrel.transform.position, Quaternion.identity);
-                    bulletInstantiated.GetComponent<EnemyBulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir));
+                    bulletInstantiated.GetComponent<EnemyBulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir), gridSize);
                     bulletInstantiated.GetComponent<EnemyBulletScript>().SetParentGO(gameObject);
 
                     usedDirs.Add(attackDir);
@@ -41,5 +52,10 @@ public class StaEnAttack : MonoBehaviour
 
             targetTime = currentStruct.waitAfter + Time.time;
         }
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(Barrel.transform.position, new Vector3(gridSize, gridSize, 1));
     }
 }
