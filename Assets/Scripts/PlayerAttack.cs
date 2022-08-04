@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public Animator animator;
     [SerializeField] GameObject Barrel;
     [SerializeField] GameObject[] waterProjectile;
+    [SerializeField] AudioSource sfx;
     [SerializeField] float fireCooldown = 0.5f;
 
     float fireTargetTime = float.MinValue;
@@ -26,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
         {
             FireWater();
             fireTargetTime = Time.time + fireCooldown;
+            sfx.Play();
         }
     }
 
