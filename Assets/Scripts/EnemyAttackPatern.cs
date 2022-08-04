@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[System.Serializable] struct EAPStruct
+{
+    public Dir[] directionsToAttack;
+    public float waitAfter;
+}
+
+
 [CreateAssetMenu(fileName = "EnemyAttackPatern")]
 public class EnemyAttackPatern : ScriptableObject
 {
-    [SerializeField] struct EAPStruct
-    {
-        public Dir[] directionsToAttack;
+    [SerializeField] EAPStruct[] enemyAttackPatern;
 
-    }
 }
