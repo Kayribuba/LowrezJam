@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletScript : MonoBehaviour
+public class EnemyBulletScript : MonoBehaviour
 {
     public Vector2 MoveDir;
     public GameObject parentGO;
@@ -11,7 +11,6 @@ public class bulletScript : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float speed = 5f;
     [SerializeField] float bulletLifespan = 10f;
-    [SerializeField] bool isEnemyBullet;
 
     float deathTargetTime = float.MaxValue;
 
@@ -29,23 +28,14 @@ public class bulletScript : MonoBehaviour
     {
         if (collision.gameObject != parentGO && parentGO != null)
         {
-            if (collision.CompareTag("Wall"))
+            if (collision.CompareTag("Wall") || collision.CompareTag("Enemy"))
             {
-                DestroyBullet();
-            }
-            else if (collision.CompareTag("Enemy"))
-            {
-                if (!isEnemyBullet)
-                    collision.GetComponent<StationaryEnemyHealthScript>()?.TakeDamage();
-
                 DestroyBullet();
             }
             else if (collision.CompareTag("Player"))
             {
-                if (isEnemyBullet)
-                    collision.GetComponent<PlayerHealthScript>()?.RecieveDamage(1);
-
-                    DestroyBullet();
+                collision.GetComponent<PlayerHealthScript>()?.RecieveDamage(1);
+                DestroyBullet();
             }
         }
     }

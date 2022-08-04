@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float fireCooldown = 0.5f;
 
     float fireTargetTime = float.MinValue;
+    float gridSize;
     Vector2 weaponVector;
     Vector2 snappedWeaponVector;
 
@@ -31,14 +32,15 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public void SetGridSize(float gs) => gridSize = gs;
     void FireWater()
     {
         if (waterProjectile != null)
         {
             System.Random rand = new System.Random();
             GameObject WP = Instantiate(waterProjectile[rand.Next(0, waterProjectile.Length)], Barrel.transform.position, Quaternion.identity);
-            WP.GetComponent<bulletScript>().SetFlightVector(snappedWeaponVector);
-            WP.GetComponent<bulletScript>().SetParentGO(gameObject);
+            WP.GetComponent<PlayerBulletScript>().SetFlightVector(snappedWeaponVector, gridSize);
+            WP.GetComponent<PlayerBulletScript>().SetParentGO(gameObject);
         }
     }
     Vector2 SnapNormalizedVector2To8WayGrid(Vector2 vector)
@@ -48,7 +50,14 @@ public class PlayerAttack : MonoBehaviour
             Vector2.Angle(vector, new Vector2(0.7f, 0.7f)), Vector2.Angle(vector, new Vector2(0.7f, -0.7f)),
             Vector2.Angle(vector, new Vector2(-0.7f, -0.7f)), Vector2.Angle(vector, new Vector2(-0.7f, 0.7f)));
 
-            Barrel.transform.position = Functions.AddVector2sTogether(transform.position, snappedWeaponVector);
+
+        Barrel.transform.position = Functions.AddVector2sTogether(transform.position, snappedWeaponVector);
+
+        Vector2 barrelCorrectorVector = Barrel.transform.position;
+        barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
+        barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
+        Barrel.transform.position = barrelCorrectorVector;
+
 
         if (smallestAngle == Vector2.Angle(vector, Vector2.left))
         {

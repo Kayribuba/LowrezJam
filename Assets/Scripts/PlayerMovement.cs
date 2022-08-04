@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float gridSize;
+
     [SerializeField] GameObject bg;
     [SerializeField] float interval = 0.01f;
 
     Vector2 bgTopLeft;
     Vector2 targetPosition;
-    float gridSize;
     float targetTime = float.MinValue;
 
     void Start()
     {
         gridSize = bg.GetComponent<GridSizer>().GetGridSize();
+        GetComponent<PlayerAttack>()?.SetGridSize(gridSize);
 
         bgTopLeft.x = bg.transform.position.x - bg.transform.lossyScale.x / 2;
         bgTopLeft.y = bg.transform.position.y + bg.transform.lossyScale.y / 2;

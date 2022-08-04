@@ -8,6 +8,7 @@ public class StaEnAttack : MonoBehaviour
     [SerializeField] GameObject[] projectiles;
     [SerializeField] GameObject Barrel;
     [SerializeField] EnemyAttackPatern eap;
+    [SerializeField] AudioSource attackSFX;
 
     int eapsIndex = 0;
     float targetTime = float.MinValue;
@@ -18,6 +19,8 @@ public class StaEnAttack : MonoBehaviour
         {
             EAPStruct currentStruct = eap.attackPatern[eapsIndex];
 
+            attackSFX.Play();
+
             List<Dir> usedDirs = new List<Dir>();
             System.Random rand = new System.Random();
             foreach(Dir attackDir in currentStruct.directionsToAttack)
@@ -27,8 +30,8 @@ public class StaEnAttack : MonoBehaviour
                     Barrel.transform.position = Functions.AddVector2sTogether(transform.position, DirectionEnum.GetVector2DirFromEnum(attackDir));
 
                     GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], Barrel.transform.position, Quaternion.identity);
-                    bulletInstantiated.GetComponent<bulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir));
-                    bulletInstantiated.GetComponent<bulletScript>().SetParentGO(gameObject);
+                    bulletInstantiated.GetComponent<EnemyBulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir));
+                    bulletInstantiated.GetComponent<EnemyBulletScript>().SetParentGO(gameObject);
 
                     usedDirs.Add(attackDir);
                 }
