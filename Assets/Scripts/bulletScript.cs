@@ -6,6 +6,7 @@ using UnityEngine;
 public class bulletScript : MonoBehaviour
 {
     public Vector2 MoveDir;
+    public GameObject parentGO;
     [SerializeField] GameObject popAnim;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float speed = 5f;
@@ -26,7 +27,7 @@ public class bulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject != gameObject)
+        if (collision.gameObject != parentGO && parentGO != null)
         {
             if (collision.CompareTag("Wall"))
             {
@@ -39,10 +40,10 @@ public class bulletScript : MonoBehaviour
 
                 DestroyBullet();
             }
-            else if (collision.CompareTag("Player") && isEnemyBullet)
+            else if (collision.CompareTag("Player"))
             {
                 if (isEnemyBullet)
-                    //deal damage to the player script
+                    collision.GetComponent<PlayerHealthScript>()?.RecieveDamage(1);
 
                     DestroyBullet();
             }
@@ -53,6 +54,10 @@ public class bulletScript : MonoBehaviour
     {
         MoveDir = vector;
         rb.velocity = MoveDir * speed;
+    }
+    public void SetParentGO(GameObject parentObject)
+    {
+        parentGO = parentObject;
     }
 
     private void DestroyBullet()

@@ -28,6 +28,7 @@ public class StaEnAttack : MonoBehaviour
 
                     GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], Barrel.transform.position, Quaternion.identity);
                     bulletInstantiated.GetComponent<bulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir));
+                    bulletInstantiated.GetComponent<bulletScript>().SetParentGO(gameObject);
 
                     usedDirs.Add(attackDir);
                 }
