@@ -5,30 +5,46 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
     public Animator animator;
+
+    [SerializeField] GameManagerScript GM;
     [SerializeField] GameObject Barrel;
     [SerializeField] GameObject[] waterProjectile;
     [SerializeField] AudioSource sfx;
     [SerializeField] float fireCooldown = 0.5f;
 
+    bool gameIsPaused;
     float fireTargetTime = float.MinValue;
     float gridSize;
     Vector2 weaponVector;
     Vector2 snappedWeaponVector;
 
+    void Start()
+    {
+        if (GM != null)
+            GM.GamePauseEvent += GM_GamePauseEvent;
+    }
+    void GM_GamePauseEvent(object sender, bool e)
+    {
+        gameIsPaused = e;
+    }
+
+
     void Update()
     {
-        weaponVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        weaponVector.Normalize();
-
-        snappedWeaponVector = SnapNormalizedVector2To8WayGrid(weaponVector);
-
-        if(Input.GetMouseButtonDown(0) && fireTargetTime < Time.time)
+        if (!gameIsPaused)
         {
-            FireWater();
-            fireTargetTime = Time.time + fireCooldown;
-            sfx.Play();
+            weaponVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            weaponVector.Normalize();
+
+            snappedWeaponVector = SnapNormalizedVector2To8WayGrid(weaponVector);
+
+            if (Input.GetMouseButtonDown(0) && fireTargetTime < Time.time)
+            {
+                FireWater();
+                fireTargetTime = Time.time + fireCooldown;
+                sfx.Play();
+            } 
         }
     }
 

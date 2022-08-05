@@ -7,6 +7,7 @@ public class StaEnAttack : MonoBehaviour
 {
     [SerializeField] GameObject[] projectiles;
     [SerializeField] GameObject Barrel;
+    [SerializeField] float barrelLenght = 1f;
     [SerializeField] EnemyAttackPatern eap;
 
     int eapsIndex = 0;
@@ -30,7 +31,7 @@ public class StaEnAttack : MonoBehaviour
             {
                 if(!usedDirs.Contains(attackDir) && projectiles != null)
                 {
-                    Barrel.transform.position = Functions.AddVector2sTogether(transform.position, DirectionEnum.GetVector2DirFromEnum(attackDir));
+                    Barrel.transform.position = Functions.AddVector2sTogether(transform.position, DirectionEnum.GetVector2DirFromEnum(attackDir) * barrelLenght);
 
                     Vector2 barrelCorrectorVector = Barrel.transform.position;
                     barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;

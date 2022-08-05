@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerHealthScript : MonoBehaviour
 {
+    [SerializeField] GameManagerScript GM;
+    [SerializeField] GameObject DieAnimation;
     [SerializeField] Slider HealthBar;
     [SerializeField] int maxHealth = 6;
 
@@ -34,6 +36,11 @@ public class PlayerHealthScript : MonoBehaviour
 
     void Die()
     {
-        //öl za
+        if (DieAnimation != null)
+        {
+            Instantiate(DieAnimation, transform.position, Quaternion.identity);
+        }
+
+        GM.EndGame(3f);
     }
 }
