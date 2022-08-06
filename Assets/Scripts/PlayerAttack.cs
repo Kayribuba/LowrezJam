@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(SnappedVector2Script))]
 public class PlayerAttack : MonoBehaviour
 {
     public event EventHandler<bool> ReloadEvent;
@@ -29,7 +31,6 @@ public class PlayerAttack : MonoBehaviour
     float fireTargetTime = float.MinValue;
     float reloadTargetTime = float.MaxValue;
     float gridSize;
-    Vector2 weaponVector;
     Vector2 snappedWeaponVector;
 
     void Start()
@@ -55,10 +56,17 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!gameIsPaused)
         {
-            weaponVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            weaponVector.Normalize();
+            snappedWeaponVector = GetComponent<SnappedVector2Script>().Get8WaySnappedVector2();
 
-            snappedWeaponVector = SnapNormalizedVector2To8WayGrid(weaponVector);
+            SetBools(snappedWeaponVector);
+
+            Barrel.transform.position = Functions.AddVector2sTogether(transform.position, snappedWeaponVector);
+
+            Vector2 barrelCorrectorVector = Barrel.transform.position;
+            barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
+            barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
+            Barrel.transform.position = barrelCorrectorVector;
+
 
             if (Input.GetMouseButtonDown(0) && fireTargetTime < Time.time && !isReloading)
                 FireWater();
@@ -145,67 +153,10 @@ public class PlayerAttack : MonoBehaviour
         water -= waterAmountToConsume;
         WaterBar.value = water;
     }
-
-    Vector2 SnapNormalizedVector2To8WayGrid(Vector2 vector)
+    void SetBools(Vector2 vector)
     {
-        float smallestAngle = Mathf.Min(Vector2.Angle(vector, Vector2.left), Vector2.Angle(vector, Vector2.right),
-            Vector2.Angle(vector, Vector2.up), Vector2.Angle(vector, Vector2.down),
-            Vector2.Angle(vector, new Vector2(0.7f, 0.7f)), Vector2.Angle(vector, new Vector2(0.7f, -0.7f)),
-            Vector2.Angle(vector, new Vector2(-0.7f, -0.7f)), Vector2.Angle(vector, new Vector2(-0.7f, 0.7f)));
+        Dir boolToLeaveActive = Functions.Vector2ToDir(vector);
 
-
-        Barrel.transform.position = Functions.AddVector2sTogether(transform.position, snappedWeaponVector);
-
-        Vector2 barrelCorrectorVector = Barrel.transform.position;
-        barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
-        barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
-        Barrel.transform.position = barrelCorrectorVector;
-
-
-        if (smallestAngle == Vector2.Angle(vector, Vector2.left))
-        {
-            SetBools(Dir.Left);
-            return Vector2.left;
-        }
-        else if (smallestAngle == Vector2.Angle(vector, Vector2.right))
-        {
-            SetBools(Dir.Right);
-            return Vector2.right;
-        }
-        else if (smallestAngle == Vector2.Angle(vector, Vector2.up))
-        {
-            SetBools(Dir.Up);
-            return Vector2.up;
-        }
-        else if (smallestAngle == Vector2.Angle(vector, Vector2.down))
-        {
-            SetBools(Dir.Down);
-            return Vector2.down;
-        }
-        else if (smallestAngle == Vector2.Angle(vector, new Vector2(0.7f, 0.7f)))
-        {
-            SetBools(Dir.TopRight);
-            return new Vector2(0.7f, 0.7f);
-        }
-        else if (smallestAngle == Vector2.Angle(vector, new Vector2(0.7f, -0.7f)))
-        {
-            SetBools(Dir.BottomRight);
-            return new Vector2(0.7f, -0.7f);
-        }
-        else if (smallestAngle == Vector2.Angle(vector, new Vector2(-0.7f, -0.7f)))
-        {
-            SetBools(Dir.BottomLeft);
-            return new Vector2(-0.7f, -0.7f);
-        }
-        else
-        {
-            SetBools(Dir.TopLeft);
-            return new Vector2(-0.7f, 0.7f);
-        }
-    }
-
-    void SetBools(Dir boolToLeaveActive)
-    {
         for (int i = 0; i < 8; i++)
         {
             if (boolToLeaveActive != (Dir)i)
@@ -219,11 +170,8 @@ public class PlayerAttack : MonoBehaviour
                 animator.SetBool(boolToLeaveActive.ToString(), true);
         }
     }
-
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, Functions.AddVector2sTogether(transform.position, weaponVector));
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, Functions.AddVector2sTogether(transform.position, snappedWeaponVector));
         Gizmos.color = Color.red;
