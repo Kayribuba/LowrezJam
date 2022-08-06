@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115fd9c36891eac48b0a1fbabd8f8c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDir: {x: 0, y: 0}
   parentGO: {fileID: 3159707325091022634}
+  waterCost: 1
   popAnim: {fileID: 1668420658323266000, guid: 4730d4d89072a8542af783659b741324, type: 3}
   rb: {fileID: -5151454339123690523}
-  waitTime: 0.025
+  waitTime: 0.015
   bulletLifespan: 10
 --- !u!61 &7639251890468665026
 BoxCollider2D:

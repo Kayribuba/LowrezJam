@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 822f4f91626092b49be3bf90e20e5895, type: 3}
-  m_Name: OnlyRight0.8
+  m_Name: RightSG1.5
   m_EditorClassIdentifier: 
   attackPatern:
-  - directionsToAttack: 01000000
-    waitAfter: 0.8
+  - directionsToAttack: 050000000100000007000000
+    waitAfter: 1.5
