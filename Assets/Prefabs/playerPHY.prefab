@@ -1244,7 +1244,7 @@ MonoBehaviour:
   GM: {fileID: 0}
   Kamera: {fileID: 6136472196761715734}
   Player: {fileID: 6136472197228440878}
-  cameraZoomDistance: 3
+  cameraZoomDistance: 20
 --- !u!1 &7160296775625901912
 GameObject:
   m_ObjectHideFlags: 0

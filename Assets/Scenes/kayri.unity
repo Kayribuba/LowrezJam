@@ -801,42 +801,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 395528480, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 395528480, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1512724762, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: GM
       value: 
       objectReference: {fileID: 1824656324}
-    - target: {fileID: 1512724762, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: cameraZoomDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767323266, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767323266, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3068889795032628660, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: GM
       value: 
       objectReference: {fileID: 1824656324}
-    - target: {fileID: 4342579979926534100, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342579979926534100, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440872, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: bg
       value: 
