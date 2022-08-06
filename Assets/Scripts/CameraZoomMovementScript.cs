@@ -9,16 +9,19 @@ public class CameraZoomMovementScript : MonoBehaviour
     [SerializeField] Camera Kamera;
     [SerializeField] Transform Player;
 
-    [SerializeField] float cameraZoomDistance = 2f;
+    [SerializeField] int cameraZoomDistance = 5;
 
     bool gameIsPaused;
     bool holding;
+    float gridSize = 0.15625f;
     SnappedVector2Script SV2S;
 
     void Start()
     {
         SV2S = GetComponent<SnappedVector2Script>();
         SV2S.SnappedVectorChangedEvent += SV2S_SnappedVectorChangedEvent;
+
+        gridSize = FindObjectOfType<GridSizer>().GetGridSize();
 
         GM.GamePauseEvent += GM_GamePauseEvent;
     }
@@ -64,7 +67,7 @@ public class CameraZoomMovementScript : MonoBehaviour
 
     void ChangeCamPos()
     {
-        Vector3 targetPos = Functions.AddVector2sTogether(Player.position, GetComponent<SnappedVector2Script>().Get8WaySnappedVector2() * cameraZoomDistance);
+        Vector3 targetPos = Functions.AddVector2sTogether(Player.position, GetComponent<SnappedVector2Script>().Get8WaySnappedVector2() * cameraZoomDistance * gridSize);
         targetPos.z = -10;
         Kamera.transform.position = targetPos;
     }
