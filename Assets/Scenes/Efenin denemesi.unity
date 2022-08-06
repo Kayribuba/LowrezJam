@@ -4236,6 +4236,10 @@ PrefabInstance:
       propertyPath: GM
       value: 
       objectReference: {fileID: 1824656324}
+    - target: {fileID: 6136472197228440877, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
+      propertyPath: reloadTime
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440878, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: m_RootOrder
       value: 4
