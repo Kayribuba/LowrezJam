@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 822f4f91626092b49be3bf90e20e5895, type: 3}
-  m_Name: OnlyLeft
+  m_Name: OnlyRight1
   m_EditorClassIdentifier: 
   attackPatern:
-  - directionsToAttack: 00000000
+  - directionsToAttack: 01000000
     waitAfter: 1
