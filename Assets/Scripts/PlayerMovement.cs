@@ -12,9 +12,13 @@ public class PlayerMovement : MonoBehaviour
     Vector2 bgTopLeft;
     Vector2 targetPosition;
     float targetTime = float.MinValue;
+    bool isReloading;
 
     void Start()
     {
+        if (GetComponent<PlayerAttack>() != null)
+            GetComponent<PlayerAttack>().ReloadEvent += PlayerMovement_ReloadEvent;
+
         gridSize = bg.GetComponent<GridSizer>().GetGridSize();
         GetComponent<PlayerAttack>()?.SetGridSize(gridSize);
 
@@ -26,9 +30,15 @@ public class PlayerMovement : MonoBehaviour
         nextPos.y -= transform.lossyScale.y / 2;
         transform.position = nextPos;
     }
+
+    private void PlayerMovement_ReloadEvent(object sender, bool e)
+    {
+        isReloading = e;
+    }
+
     private void Update()
     {
-        if (targetTime < Time.time)
+        if (targetTime < Time.time && !isReloading)
         {
             targetPosition = transform.position;
 

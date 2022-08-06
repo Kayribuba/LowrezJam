@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBulletScript : MonoBehaviour
 {
     public GameObject parentGO;
+    public int waterCost = 1;
     [SerializeField] GameObject popAnim;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float waitTime = 0.1f;
