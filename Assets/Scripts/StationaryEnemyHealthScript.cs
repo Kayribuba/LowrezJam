@@ -62,6 +62,9 @@ public class StationaryEnemyHealthScript : MonoBehaviour
     {
         dead = true;
         Debug.Log($"Enemy {gameObject.name} has died.");
+
+        if (GetComponent<StaEnAttack>() != null)
+            GetComponent<StaEnAttack>().enabled = false;
         
         if (destroyAfterDeath)
         {
