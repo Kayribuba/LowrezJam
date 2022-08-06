@@ -158,11 +158,6 @@ Transform:
   m_Father: {fileID: 728185592}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &546358583 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6136472196761715734, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-  m_PrefabInstance: {fileID: 6136472196255001411}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &728185590
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,32 +478,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1512724761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6136472197228440873, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-  m_PrefabInstance: {fileID: 6136472196255001411}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1512724762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512724761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ab7e29e06536ec40a7b14bcd2a8ed5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GM: {fileID: 1824656324}
-  Kamera: {fileID: 546358583}
-  Player: {fileID: 1512724769}
-  cameraZoomDistance: 3
---- !u!4 &1512724769 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6136472197228440878, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-  m_PrefabInstance: {fileID: 6136472196255001411}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591477227
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,58 +801,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 395528480, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 395528480, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1322379155, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1322379155, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767323266, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767323266, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057080417319746079, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057080417319746079, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1512724762, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
+      propertyPath: GM
+      value: 
+      objectReference: {fileID: 1824656324}
     - target: {fileID: 3068889795032628660, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: GM
       value: 
       objectReference: {fileID: 1824656324}
-    - target: {fileID: 3534626925726011773, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3534626925726011773, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342579979926534100, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342579979926534100, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440872, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: bg
       value: 
