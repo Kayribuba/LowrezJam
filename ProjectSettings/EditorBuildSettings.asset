@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/kayri.unity
     guid: 45b726a765bc709498bb63f16a54ecd1
+  - enabled: 1
+    path: Assets/Scenes/Efenin denemesi.unity
+    guid: cecc7d7b3dac6a74286d1ffea60400c7
   m_configObjects: {}
