@@ -29,6 +29,7 @@ public class StationaryEnemyHealthScript : MonoBehaviour
             if (health > 0)
             {
                 AS.Play();
+                Debug.Log(AS.clip.name);
             }
             health--;
 

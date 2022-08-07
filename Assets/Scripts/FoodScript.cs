@@ -6,6 +6,9 @@ public class FoodScript : MonoBehaviour
 {
     [SerializeField] Sprite[] foodSprites;
     [SerializeField] SpriteRenderer sr;
+    [SerializeField] AudioSource AS;
+
+    private bool boshish = true;
     void Start()
     {
         float randomNum = Random.Range(0, foodSprites.Length);
@@ -42,10 +45,18 @@ public class FoodScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && boshish)
         {
             collision.gameObject.GetComponent<PlayerHealthScript>().Heal();
-            Destroy(gameObject);
+            boshish = false;
+            AS.Play();
+            sr.sprite = null;
+            Invoke("DestroyFood",1);
         }
+    }
+
+    public void DestroyFood()
+    {
+        Destroy(gameObject);
     }
 }

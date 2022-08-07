@@ -22,9 +22,9 @@ public class PlayerBulletScript : MonoBehaviour
     void Update()
     {
         if (deathTargetTime <= Time.time)
-            Destroy(gameObject);
+            DestroyBullet();
 
-        if(moveTargetTime <= Time.time)
+        if (moveTargetTime <= Time.time)
         {
             transform.position += (Vector3)movement;
             CheckCollisions();
@@ -34,7 +34,7 @@ public class PlayerBulletScript : MonoBehaviour
 
     void CheckCollisions()
     {
-        Collider2D[] collisions = Physics2D.OverlapBoxAll(transform.position, GetComponent<BoxCollider2D>().transform.lossyScale, 0);
+        Collider2D[] collisions = Physics2D.OverlapBoxAll(transform.position, GetComponent<BoxCollider2D>().size * 1.25f, 0);
 
         foreach (Collider2D collision in collisions)
         {
@@ -52,6 +52,11 @@ public class PlayerBulletScript : MonoBehaviour
             }
         }
     }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.cyan;
+    //    Gizmos.DrawWireCube(transform.position, GetComponent<BoxCollider2D>().size * 1.25f);
+    //}
 
     public void SetFlightVector(Vector2 vector, float gridSize)
     {

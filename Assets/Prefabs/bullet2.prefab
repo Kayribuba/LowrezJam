@@ -123,7 +123,7 @@ MonoBehaviour:
   popAnim: {fileID: 1668420658323266000, guid: 4730d4d89072a8542af783659b741324, type: 3}
   rb: {fileID: -5151454339123690523}
   waitTime: 0.015
-  bulletLifespan: 10
+  bulletLifespan: 0.6
 --- !u!61 &7639251890468665026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,5 +148,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.94763124, y: 0.95190644}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
