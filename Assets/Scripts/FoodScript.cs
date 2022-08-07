@@ -21,14 +21,30 @@ public class FoodScript : MonoBehaviour
                 case 1:
                     sr.sprite = foodSprites[1];
                     break;
+                case 2:
+                    sr.sprite = foodSprites[2];
+                    break;
+                case 3:
+                    sr.sprite = foodSprites[3];
+                    break;
+                case 4:
+                    sr.sprite = foodSprites[4];
+                    break;
+                case 5:
+                    sr.sprite = foodSprites[5];
+                    break;
+                case 6:
+                    sr.sprite = foodSprites[6];
+                    break;
             }
 
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+        }
     }
 }
