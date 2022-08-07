@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822f4f91626092b49be3bf90e20e5895, type: 3}
   m_Name: tekerTeker2
   m_EditorClassIdentifier: 
-  attackPatern: []
+  attackPatern:
+  - directionsToAttack: 00000000
+    waitAfter: 0.1
+  - directionsToAttack: 06000000
+    waitAfter: 0.1
+  - directionsToAttack: 03000000
+    waitAfter: 0.1
+  - directionsToAttack: 07000000
+    waitAfter: 0.1
+  - directionsToAttack: 01000000
+    waitAfter: 0.1
+  - directionsToAttack: 05000000
+    waitAfter: 0.1
+  - directionsToAttack: 02000000
+    waitAfter: 0.1
+  - directionsToAttack: 04000000
+    waitAfter: 0.1

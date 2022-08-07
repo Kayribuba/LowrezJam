@@ -7,12 +7,13 @@ public class FoodScript : MonoBehaviour
     [SerializeField] Sprite[] foodSprites;
     [SerializeField] SpriteRenderer sr;
     [SerializeField] AudioSource AS;
+    [SerializeField] GameObject CP;
 
     private bool boshish = true;
     void Start()
     {
         float randomNum = Random.Range(0, foodSprites.Length);
-        Debug.Log(randomNum);
+        CP = GameObject.FindGameObjectWithTag("CheckPointer");
         
         if (foodSprites.Length >= 1)
         {
@@ -51,12 +52,8 @@ public class FoodScript : MonoBehaviour
             boshish = false;
             AS.Play();
             sr.sprite = null;
-            Invoke("DestroyFood",1);
+            CP.transform.position = transform.position;
+            Destroy(gameObject, 1);
         }
-    }
-
-    public void DestroyFood()
-    {
-        Destroy(gameObject);
     }
 }
