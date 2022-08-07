@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822f4f91626092b49be3bf90e20e5895, type: 3}
   m_Name: leftUP
   m_EditorClassIdentifier: 
-  attackPatern: []
+  attackPatern:
+  - directionsToAttack: 000000000200000004000000
+    waitAfter: 0.2
