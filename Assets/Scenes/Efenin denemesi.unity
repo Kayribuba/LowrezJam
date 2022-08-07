@@ -4176,30 +4176,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1175160433, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175160433, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_Size.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175160433, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175160433, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1512724762, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: GM
       value: 
       objectReference: {fileID: 1824656324}
-    - target: {fileID: 1512724762, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: cameraZoomDistance
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1767323266, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4224,10 +4204,6 @@ PrefabInstance:
       propertyPath: bg
       value: 
       objectReference: {fileID: 144520065}
-    - target: {fileID: 6136472197228440872, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: interval
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440873, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: m_Name
       value: playerPHY
@@ -4236,10 +4212,6 @@ PrefabInstance:
       propertyPath: GM
       value: 
       objectReference: {fileID: 1824656324}
-    - target: {fileID: 6136472197228440877, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
-      propertyPath: reloadTime
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440878, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: m_RootOrder
       value: 4

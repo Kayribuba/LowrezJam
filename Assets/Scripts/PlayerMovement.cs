@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] GameObject bg;
     [SerializeField] float interval = 0.01f;
+    [SerializeField][Range(0,100)] float ReloadSpeedPercent = 50f;
 
     Vector2 bgTopLeft;
     Vector2 targetPosition;
@@ -38,8 +39,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (targetTime < Time.time && !isReloading)
+        if (targetTime < Time.time)
         {
+            float speedInterval = isReloading ? interval / (ReloadSpeedPercent / 100) : interval;
+
             targetPosition = transform.position;
 
             if (Input.GetKey(KeyCode.D))
@@ -87,8 +90,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-                transform.position = targetPosition;
-                targetTime = Time.time + interval;
+            transform.position = targetPosition;
+            targetTime = Time.time + speedInterval;
         }
     }
 

@@ -23,6 +23,8 @@ public class CameraZoomMovementScript : MonoBehaviour
 
         gridSize = FindObjectOfType<GridSizer>().GetGridSize();
 
+        if (GM == null && GetComponent<GameManagerScript>() != null)
+            GM = GetComponent<GameManagerScript>();
         GM.GamePauseEvent += GM_GamePauseEvent;
     }
 

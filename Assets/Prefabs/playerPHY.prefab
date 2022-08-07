@@ -1057,9 +1057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4a43fdcbde1b044bbeb5097cd9757e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 0
+  gridSize: 0.15625
   bg: {fileID: 0}
-  interval: 0.05
+  interval: 0.03
+  ReloadSpeedPercent: 50
 --- !u!114 &3068889795032628660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,7 +1216,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &5039364096940011266
 MonoBehaviour:

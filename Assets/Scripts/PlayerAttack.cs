@@ -35,6 +35,8 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
+        if(GM == null && GetComponent<GameManagerScript>() != null)
+        GM = GetComponent<GameManagerScript>();
         if (GM != null)
             GM.GamePauseEvent += GM_GamePauseEvent;
 

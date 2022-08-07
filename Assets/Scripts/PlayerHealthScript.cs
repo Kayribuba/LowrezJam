@@ -15,6 +15,9 @@ public class PlayerHealthScript : MonoBehaviour
 
     void Start()
     {
+        if (GM == null && GetComponent<GameManagerScript>() != null)
+            GM = GetComponent<GameManagerScript>();
+
         health = maxHealth;
         HealthBar.maxValue = maxHealth;
         HealthBar.value = maxHealth;
