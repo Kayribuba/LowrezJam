@@ -23,13 +23,13 @@ public class PlayerMovement : MonoBehaviour
         gridSize = bg.GetComponent<GridSizer>().GetGridSize();
         GetComponent<PlayerAttack>()?.SetGridSize(gridSize);
 
-        bgTopLeft.x = bg.transform.position.x - bg.transform.lossyScale.x / 2;
-        bgTopLeft.y = bg.transform.position.y + bg.transform.lossyScale.y / 2;
+        //bgTopLeft.x = bg.transform.position.x - bg.transform.lossyScale.x / 2;
+        //bgTopLeft.y = bg.transform.position.y + bg.transform.lossyScale.y / 2;
 
-        Vector2 nextPos = bgTopLeft;
-        nextPos.x += transform.lossyScale.x / 2;
-        nextPos.y -= transform.lossyScale.y / 2;
-        transform.position = nextPos;
+        //Vector2 nextPos = bgTopLeft;
+        //nextPos.x += gridSize * 32 - transform.lossyScale.x / 2;
+        //nextPos.y -= gridSize * 32 - transform.lossyScale.y / 2;
+        //transform.position = nextPos;
     }
 
     private void PlayerMovement_ReloadEvent(object sender, bool e)
