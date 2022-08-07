@@ -37,6 +37,12 @@ public class PlayerHealthScript : MonoBehaviour
         HealthBar.value = health;
     }
 
+    public void Heal()
+    {
+        health = maxHealth;
+        HealthBar.value = health;
+    }
+
     void Die()
     {
         if (DieAnimation != null)

@@ -8,7 +8,7 @@ public class FoodScript : MonoBehaviour
     [SerializeField] SpriteRenderer sr;
     void Start()
     {
-        float randomNum = Random.Range(0, foodSprites.Length - 1);
+        float randomNum = Random.Range(0, foodSprites.Length);
         Debug.Log(randomNum);
         
         if (foodSprites.Length >= 1)
@@ -44,7 +44,8 @@ public class FoodScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            collision.gameObject.GetComponent<PlayerHealthScript>().Heal();
+            Destroy(gameObject);
         }
     }
 }
