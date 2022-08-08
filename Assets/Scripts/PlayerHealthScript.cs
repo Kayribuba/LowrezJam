@@ -10,6 +10,7 @@ public class PlayerHealthScript : MonoBehaviour
     [SerializeField] GameObject DieAnimation;
     [SerializeField] Slider HealthBar;
     [SerializeField] int maxHealth = 6;
+    [SerializeField] Transform CP;
 
     int health;
 
@@ -17,6 +18,8 @@ public class PlayerHealthScript : MonoBehaviour
     {
         if (GM == null && GetComponent<GameManagerScript>() != null)
             GM = GetComponent<GameManagerScript>();
+
+        CP = GameObject.FindGameObjectWithTag("CheckPointer").transform;
 
         health = maxHealth;
         HealthBar.maxValue = maxHealth;
@@ -51,5 +54,11 @@ public class PlayerHealthScript : MonoBehaviour
         }
 
         GM.EndGame(3f);
+    }
+
+    public void RespawnP()
+    {
+        transform.position = CP.position;
+
     }
 }
