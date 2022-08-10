@@ -13,18 +13,30 @@ public class GameManagerScript : MonoBehaviour
     public bool gameIsPaused { get; private set; } = true;
 
     int currentSceneIndex;
-    float targetEndRealTime = float.MaxValue;
+    public float targetEndRealTime = float.MaxValue;
     bool gameEnded;
 
+    public float deneme;
+
+    [SerializeField] GameObject player;
 
     void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        player = GameObject.FindGameObjectWithTag("Player");
+
     }
     void Update()
     {
+        deneme = Time.realtimeSinceStartup;
         if (targetEndRealTime <= Time.realtimeSinceStartup)
-            ReloadLevel();
+        {
+            //ReloadLevel();
+            Debug.Log("anan ya anan");
+            Respawn();
+            targetEndRealTime = float.MaxValue;
+        }
+            
 
         if (!gameEnded)
         {
@@ -100,5 +112,15 @@ public class GameManagerScript : MonoBehaviour
         GamePauseEvent?.Invoke(this, false);
         Time.timeScale = 1;
         AudioListener.pause = false;
+    }
+
+    void Respawn()
+    {
+        Debug.Log("respawn");
+        targetEndRealTime = float.MaxValue;
+        UnPauseGame();
+        gameEnded = false;
+        player.GetComponent<PlayerHealthScript>().Heal();
+        player.GetComponent<PlayerHealthScript>().RespawnP();
     }
 }
