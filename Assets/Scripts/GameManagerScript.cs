@@ -9,6 +9,8 @@ public enum Level { Previous, Next, Current}
 
 public class GameManagerScript : MonoBehaviour
 {
+    [SerializeField] GameObject pauseCanvas;
+
     public event EventHandler<bool> GamePauseEvent;
     public bool gameIsPaused { get; private set; } = true;
 
@@ -20,10 +22,15 @@ public class GameManagerScript : MonoBehaviour
 
     [SerializeField] GameObject player;
 
+    private void Awake()
+    {
+        pauseCanvas = GameObject.Find("PauseCanvas");
+    }
     void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         player = GameObject.FindGameObjectWithTag("Player");
+        
 
     }
     void Update()
@@ -32,7 +39,6 @@ public class GameManagerScript : MonoBehaviour
         if (targetEndRealTime <= Time.realtimeSinceStartup)
         {
             //ReloadLevel();
-            Debug.Log("anan ya anan");
             Respawn();
             targetEndRealTime = float.MaxValue;
         }
@@ -103,12 +109,20 @@ public class GameManagerScript : MonoBehaviour
 
     public void PauseGame()
     {
+        if (pauseCanvas != null)
+        {
+            pauseCanvas.SetActive(true);
+        }
         GamePauseEvent?.Invoke(this, true);
         Time.timeScale = 0;
         AudioListener.pause = true;
     }
     public void UnPauseGame()
     {
+        if (pauseCanvas != null)
+        {
+            pauseCanvas.SetActive(false);
+        }
         GamePauseEvent?.Invoke(this, false);
         Time.timeScale = 1;
         AudioListener.pause = false;
