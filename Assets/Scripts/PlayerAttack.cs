@@ -70,7 +70,7 @@ public class PlayerAttack : MonoBehaviour
             Barrel.transform.position = barrelCorrectorVector;
 
 
-            if (Input.GetMouseButtonDown(0) && fireTargetTime < Time.time && !isReloading)
+            if (Input.GetMouseButton(0) && fireTargetTime < Time.time && !isReloading)
                 FireWater();
 
             if(reloadIndicatorTargetTime <= Time.time)//bar valuesi arttý
