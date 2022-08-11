@@ -21,6 +21,7 @@ public class GameManagerScript : MonoBehaviour
     public float deneme;
 
     [SerializeField] GameObject player;
+    [SerializeField] GameObject[] enemies;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class GameManagerScript : MonoBehaviour
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
     void Update()
     {
@@ -51,7 +53,7 @@ public class GameManagerScript : MonoBehaviour
                 if (gameIsPaused)
                     UnPauseGame();
                 else
-                    PauseGame();
+                    PauseGameCanvas();
 
                 gameIsPaused = !gameIsPaused;
             } 
@@ -107,12 +109,18 @@ public class GameManagerScript : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    public void PauseGame()
+    public void PauseGameCanvas()
     {
         if (pauseCanvas != null)
         {
             pauseCanvas.SetActive(true);
         }
+        GamePauseEvent?.Invoke(this, true);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+    }
+    public void PauseGame()
+    {
         GamePauseEvent?.Invoke(this, true);
         Time.timeScale = 0;
         AudioListener.pause = true;
@@ -136,5 +144,11 @@ public class GameManagerScript : MonoBehaviour
         gameEnded = false;
         player.GetComponent<PlayerHealthScript>().Heal();
         player.GetComponent<PlayerHealthScript>().RespawnP();
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<StationaryEnemyHealthScript>().RefreshHouse();
+        }
+
+        
     }
 }
