@@ -12,7 +12,7 @@ public class StationaryEnemyHealthScript : MonoBehaviour
     [SerializeField] AudioSource AS;
 
     [SerializeField] int maxHealth = 6;
-    [SerializeField] bool destroyAfterDeath = true;
+    [SerializeField] bool destroyAfterDeath = false;
 
     int health;
     bool dead;
@@ -40,6 +40,15 @@ public class StationaryEnemyHealthScript : MonoBehaviour
                 Die();
             }
         }
+    }
+
+    public void RefreshHouse()
+    {
+        dead = false;
+        health = maxHealth;
+        animator.SetInteger("Phase",1);
+        if (GetComponent<StaEnAttack>() != null)
+            GetComponent<StaEnAttack>().enabled = true;
     }
 
     void CompareTreshold(int health)
