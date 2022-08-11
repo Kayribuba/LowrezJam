@@ -29,9 +29,9 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        player = GameObject.FindGameObjectWithTag("Player");
-        
 
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {
