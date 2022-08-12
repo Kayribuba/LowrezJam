@@ -16,7 +16,7 @@ public class StationaryEnemyHealthScript : MonoBehaviour
     [SerializeField] int maxHealth = 6;
     [SerializeField] bool destroyAfterDeath = false;
 
-    int health;
+    [SerializeField] int health;
     bool dead;
 
     void Start()
