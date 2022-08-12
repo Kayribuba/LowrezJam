@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
         if (GetComponent<PlayerAttack>() != null)
             GetComponent<PlayerAttack>().ReloadEvent += PlayerMovement_ReloadEvent;
 
+        if (bg == null && FindObjectOfType<GridSizer>() != null)
+            bg = FindObjectOfType<GridSizer>().gameObject;
+
         gridSize = bg.GetComponent<GridSizer>().GetGridSize();
         GetComponent<PlayerAttack>()?.SetGridSize(gridSize);
 

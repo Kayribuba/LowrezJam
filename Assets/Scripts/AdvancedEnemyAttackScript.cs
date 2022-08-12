@@ -14,6 +14,7 @@ struct PhasedAttackPatterns
     public EnemyAttackPatern ap;
 }
 
+[RequireComponent(typeof(StationaryEnemyHealthScript))]
 public class AdvancedEnemyAttackScript : MonoBehaviour
 {
     [SerializeField] AEASBarrel[] barrels;
@@ -23,6 +24,7 @@ public class AdvancedEnemyAttackScript : MonoBehaviour
     [SerializeField] int phase;
     int oldPhase = -1;
 
+    StationaryEnemyHealthScript HealthScript;
     int[] EAPSINDEXES;
     float[] targetTimes;
     float gridSize;
@@ -37,8 +39,16 @@ public class AdvancedEnemyAttackScript : MonoBehaviour
             gridSize = 0.15625f;
         }
 
+        HealthScript = GetComponent<StationaryEnemyHealthScript>();
+        HealthScript.PhaseChangedEvent += HealthScript_PhaseChangedEvent;
+
         targetTimes = new float[barrels.Length];
         EAPSINDEXES = new int[barrels.Length];
+    }
+
+    void HealthScript_PhaseChangedEvent(object sender, int e)
+    {
+        phase = e - 1;
     }
 
     void Update()

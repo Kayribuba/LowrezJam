@@ -13,13 +13,14 @@ public class PlayerHealthScript : MonoBehaviour
     [SerializeField] Transform CP;
 
     int health;
+    GameObject dieAnimInstantiated;
 
     void Start()
     {
-        if (GM == null && GetComponent<GameManagerScript>() != null)
-            GM = GetComponent<GameManagerScript>();
+        if (GM == null && FindObjectOfType<GameManagerScript>() != null)
+            GM = FindObjectOfType<GameManagerScript>();
 
-        CP = GameObject.FindGameObjectWithTag("CheckPointer").transform;
+        CP = GameObject.FindGameObjectWithTag("CheckPointer")?.transform;
 
         health = maxHealth;
         HealthBar.maxValue = maxHealth;
@@ -50,15 +51,18 @@ public class PlayerHealthScript : MonoBehaviour
     {
         if (DieAnimation != null)
         {
-            Instantiate(DieAnimation, transform.position, Quaternion.identity);
+            dieAnimInstantiated = Instantiate(DieAnimation, transform.position, Quaternion.identity);
         }
 
-        GM.EndGame(3f);
+        if (CP == null)
+            GM.EndGame();
+        else
+            GM.EndGame(3f);
     }
 
     public void RespawnP()
     {
+        Destroy(dieAnimInstantiated);
         transform.position = CP.position;
-
     }
 }

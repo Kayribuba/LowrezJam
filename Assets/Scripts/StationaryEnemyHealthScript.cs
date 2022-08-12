@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class StationaryEnemyHealthScript : MonoBehaviour
 {
-    [SerializeField] int treshold1 = 4;
-    [SerializeField] int treshold2 = 2;
+    public event EventHandler<int> PhaseChangedEvent;
+
+    [SerializeField] int[] tresholds = new int[] { 4, 2 };
+
     [SerializeField] Animator animator;
     [SerializeField] AudioSource AS;
 
@@ -27,18 +29,14 @@ public class StationaryEnemyHealthScript : MonoBehaviour
         if (!dead)
         {
             if (health > 0)
-            {
                 AS.Play();
-                Debug.Log(AS.clip.name);
-            }
+
             health--;
 
             CompareTreshold(health);
 
             if (health <= 0)
-            {
                 Die();
-            }
         }
     }
 
@@ -53,19 +51,23 @@ public class StationaryEnemyHealthScript : MonoBehaviour
 
     void CompareTreshold(int health)
     {
-        if(health <= treshold1 && health > treshold2)
+        for(int i = 0; i < tresholds.Length; i++)
         {
-            animator.SetInteger("Phase", 2);
-        }
-        if (health <= treshold2 && health > 0)
-        {
-            animator.SetInteger("Phase", 3);
-        }
-        if (health <= 0)
-        {
-            animator.SetInteger("Phase", 4);
-        }
+            int nextT = 0;
 
+            if (i < tresholds.Length - 1)
+                nextT = tresholds[i + 1];
+
+            if (health <= tresholds[i] && health > nextT)
+                ChangePhase(i + 2);
+            if (health <= 0)
+                ChangePhase(tresholds.Length + 2);
+        }
+    }
+    void ChangePhase(int changeTo)
+    {
+        animator.SetInteger("Phase", changeTo);
+        PhaseChangedEvent?.Invoke(this, changeTo);
     }
 
     void Die()

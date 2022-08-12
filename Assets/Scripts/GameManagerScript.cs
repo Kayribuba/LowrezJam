@@ -18,10 +18,9 @@ public class GameManagerScript : MonoBehaviour
     public float targetEndRealTime = float.MaxValue;
     bool gameEnded;
 
-    public float deneme;
-
     [SerializeField] GameObject player;
-    [SerializeField] GameObject[] enemies;
+
+    GameObject[] enemies;
 
     private void Awake()
     {
@@ -33,16 +32,15 @@ public class GameManagerScript : MonoBehaviour
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
+
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
     void Update()
     {
-        deneme = Time.realtimeSinceStartup;
         if (targetEndRealTime <= Time.realtimeSinceStartup)
         {
             //ReloadLevel();
             Respawn();
-            targetEndRealTime = float.MaxValue;
         }
             
 
@@ -140,15 +138,16 @@ public class GameManagerScript : MonoBehaviour
     {
         Debug.Log("respawn");
         targetEndRealTime = float.MaxValue;
-        UnPauseGame();
         gameEnded = false;
-        player.GetComponent<PlayerHealthScript>().Heal();
-        player.GetComponent<PlayerHealthScript>().RespawnP();
+        UnPauseGame();
+
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<StationaryEnemyHealthScript>().RefreshHouse();
         }
 
-        
+        player.GetComponent<PlayerHealthScript>().Heal();
+        player.GetComponent<PlayerHealthScript>().RespawnP();
+        player.GetComponent<PlayerAttack>().FullWater();
     }
 }

@@ -35,8 +35,8 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
-        if(GM == null && GetComponent<GameManagerScript>() != null)
-        GM = GetComponent<GameManagerScript>();
+        if(GM == null && FindObjectOfType<GameManagerScript>() != null)
+        GM = FindObjectOfType<GameManagerScript>();
         if (GM != null)
             GM.GamePauseEvent += GM_GamePauseEvent;
 
@@ -82,9 +82,7 @@ public class PlayerAttack : MonoBehaviour
             if(reloadTargetTime <= Time.time)//reload bitti
             {
                 CloseReloadBar();
-
-                water = maxWater;
-                WaterBar.value = water;
+                FullWater();
             }
         }
 
@@ -96,6 +94,12 @@ public class PlayerAttack : MonoBehaviour
         {
             CloseReloadBar();
         }
+    }
+
+    public void FullWater()
+    {
+        water = maxWater;
+        WaterBar.value = water;
     }
 
     void OpenReloadBar()
