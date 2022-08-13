@@ -406,12 +406,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5bf1e52246b5c44a7b9c6959a75c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treshold1: 10
-  treshold2: 5
+  tresholds: 0400000002000000
   animator: {fileID: 728185596}
   AS: {fileID: 728185595}
   maxHealth: 15
   destroyAfterDeath: 0
+  health: 0
 --- !u!1 &1358034331
 GameObject:
   m_ObjectHideFlags: 0
