@@ -1077,6 +1077,7 @@ MonoBehaviour:
   DieAnimation: {fileID: 3171203673496137895, guid: b24b22811f1656241bc8ec715613b960, type: 3}
   HealthBar: {fileID: 812568177}
   maxHealth: 6
+  CP: {fileID: 0}
 --- !u!95 &6136472197228440876
 Animator:
   serializedVersion: 3
