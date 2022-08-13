@@ -3220,7 +3220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &977269270
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6202,6 +6202,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1957538466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957538469}
+  - component: {fileID: 1957538468}
+  - component: {fileID: 1957538467}
+  m_Layer: 0
+  m_Name: FoodSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1957538467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957538466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6769d7d79d9de5f47986b63b61a95ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 4121302843722859953, guid: c30fc79ad99601646a03b526e35b7aca, type: 3}
+  cd: 1
+--- !u!114 &1957538468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957538466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b297c45a1775747b9c96a926851a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodSprites: []
+  sr: {fileID: 4121302843722859954, guid: c30fc79ad99601646a03b526e35b7aca, type: 3}
+  AS: {fileID: 0}
+  CP: {fileID: 0}
+--- !u!4 &1957538469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957538466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.1875, y: 4.0625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1986859079
 GameObject:
   m_ObjectHideFlags: 0
@@ -6978,11 +7040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440878, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.40625
+      value: -1.5625
       objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440878, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50.9375
+      value: 4.0625
       objectReference: {fileID: 0}
     - target: {fileID: 6136472197228440878, guid: 43d8f2bcdf905af4cabe9220ae1eadc9, type: 3}
       propertyPath: m_LocalPosition.z
