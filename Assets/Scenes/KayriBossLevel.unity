@@ -958,6 +958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManaging
       objectReference: {fileID: 0}
+    - target: {fileID: 8158113442268433973, guid: 12ca84c25913ef241bc1a11718d6887d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12ca84c25913ef241bc1a11718d6887d, type: 3}
 --- !u!1 &784066491
@@ -1086,7 +1090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &949064147
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1273,6 +1277,10 @@ PrefabInstance:
     - target: {fileID: 3101597318082598001, guid: a81de2da46635be408d323cc01a6ebf3, type: 3}
       propertyPath: m_Name
       value: gridsizer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101597318082598001, guid: a81de2da46635be408d323cc01a6ebf3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3101597318082598003, guid: a81de2da46635be408d323cc01a6ebf3, type: 3}
       propertyPath: m_SortingOrder
@@ -1835,6 +1843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSMOL
       objectReference: {fileID: 0}
+    - target: {fileID: 1115307287875724108, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6508685397804681236, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
       propertyPath: m_Size.x
       value: 0.25
@@ -1919,6 +1931,10 @@ PrefabInstance:
     - target: {fileID: 7665071308276967189, guid: 3e4d1692f4ca7884dbcdebbad11683d9, type: 3}
       propertyPath: m_Name
       value: GRASS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665071308276967189, guid: 3e4d1692f4ca7884dbcdebbad11683d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8143774437374085047, guid: 3e4d1692f4ca7884dbcdebbad11683d9, type: 3}
       propertyPath: m_RootOrder

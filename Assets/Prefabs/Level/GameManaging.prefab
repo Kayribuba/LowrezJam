@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683cf4b565b820949aac8cf26daf4673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
+  targetEndRealTime: 3.4028235e+38
+  player: {fileID: 0}
