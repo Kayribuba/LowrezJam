@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
     public float gridSize;
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float interval = 0.01f;
     [SerializeField][Range(0,100)] float ReloadSpeedPercent = 50f;
 
+    Animator animator;
     Vector2 bgTopLeft;
     Vector2 targetPosition;
     float targetTime = float.MinValue;
@@ -25,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
         gridSize = bg.GetComponent<GridSizer>().GetGridSize();
         GetComponent<PlayerAttack>()?.SetGridSize(gridSize);
+
+        animator = GetComponent<Animator>();
 
         //bgTopLeft.x = bg.transform.position.x - bg.transform.lossyScale.x / 2;
         //bgTopLeft.y = bg.transform.position.y + bg.transform.lossyScale.y / 2;
@@ -44,14 +48,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (targetTime < Time.time)
         {
+            bool isMoving = false;
+
             float speedInterval = isReloading ? interval / (ReloadSpeedPercent / 100) : interval;
 
             targetPosition = transform.position;
 
             if (Input.GetKey(KeyCode.D))
+            {
                 targetPosition.x += gridSize;
+                isMoving = true;
+            }
             else if (Input.GetKey(KeyCode.A))
+            {
                 targetPosition.x -= gridSize;
+                isMoving = true;
+            }
 
             //,
 
@@ -74,9 +86,15 @@ public class PlayerMovement : MonoBehaviour
             //
 
             if (Input.GetKey(KeyCode.W))
+            {
                 targetPosition.y += gridSize;
+                isMoving = true;
+            }
             else if (Input.GetKey(KeyCode.S))
+            {
                 targetPosition.y -= gridSize;
+                isMoving = true;
+            }
 
             collidedObjects = Physics2D.OverlapBoxAll(targetPosition, transform.lossyScale * 0.9f, 0);
 
@@ -95,6 +113,8 @@ public class PlayerMovement : MonoBehaviour
 
             transform.position = targetPosition;
             targetTime = Time.time + speedInterval;
+
+            animator.SetBool("isMoving", isMoving);
         }
     }
 
