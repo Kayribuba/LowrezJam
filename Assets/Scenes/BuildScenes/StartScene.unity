@@ -1056,7 +1056,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -1154,13 +1154,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSongs:
-  - levelBuildIndexFrom: 0
+  - isLooping: 1
+    levelBuildIndexFrom: 0
     levelBuildIndexTo: 0
     songToPlay: {fileID: 8300000, guid: f919853a511bba1468cb077fba9e7708, type: 3}
-  - levelBuildIndexFrom: 1
+  - isLooping: 1
+    levelBuildIndexFrom: 1
     levelBuildIndexTo: 1
     songToPlay: {fileID: 8300000, guid: fd806fca9812a4545b58fa1abc0cf3e9, type: 3}
-  - levelBuildIndexFrom: 2
+  - isLooping: 1
+    levelBuildIndexFrom: 2
     levelBuildIndexTo: 2
     songToPlay: {fileID: 8300000, guid: bdd7b7e8c628bd54b9708844ed23bc19, type: 3}
   audioSource: {fileID: 1012011273}
