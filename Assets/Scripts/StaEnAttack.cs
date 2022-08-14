@@ -17,6 +17,12 @@ public class StaEnAttack : MonoBehaviour
 
     void Start()
     {
+        if (eap == null)
+        {
+            eap = ScriptableObject.CreateInstance<EnemyAttackPatern>();
+            eap.attackPatern = new EAPStruct[] { new EAPStruct { directionsToAttack = null, waitAfter = 1 } };
+        }
+
         gridSize = FindObjectOfType<GridSizer>().GetGridSize();
     }
     void Update()
@@ -27,22 +33,25 @@ public class StaEnAttack : MonoBehaviour
 
             List<Dir> usedDirs = new List<Dir>();
             System.Random rand = new System.Random();
-            foreach(Dir attackDir in currentStruct.directionsToAttack)
+            if (currentStruct.directionsToAttack != null)
             {
-                if(!usedDirs.Contains(attackDir) && projectiles != null)
+                foreach (Dir attackDir in currentStruct.directionsToAttack)
                 {
-                    Barrel.transform.position = Functions.AddVector2sTogether(transform.position, DirectionEnum.GetVector2DirFromEnum(attackDir) * barrelLenght);
+                    if (!usedDirs.Contains(attackDir) && projectiles != null)
+                    {
+                        Barrel.transform.position = Functions.AddVector2sTogether(transform.position, DirectionEnum.GetVector2DirFromEnum(attackDir) * barrelLenght);
 
-                    Vector2 barrelCorrectorVector = Barrel.transform.position;
-                    barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
-                    barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
-                    Barrel.transform.position = barrelCorrectorVector;
+                        Vector2 barrelCorrectorVector = Barrel.transform.position;
+                        barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
+                        barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
+                        Barrel.transform.position = barrelCorrectorVector;
 
-                    GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], Barrel.transform.position, Quaternion.identity);
-                    bulletInstantiated.GetComponent<EnemyBulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir), gridSize);
-                    bulletInstantiated.GetComponent<EnemyBulletScript>().SetParentGO(gameObject);
+                        GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], Barrel.transform.position, Quaternion.identity);
+                        bulletInstantiated.GetComponent<EnemyBulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir), gridSize);
+                        bulletInstantiated.GetComponent<EnemyBulletScript>().SetParentGO(gameObject);
 
-                    usedDirs.Add(attackDir);
+                        usedDirs.Add(attackDir);
+                    }
                 }
             }
 

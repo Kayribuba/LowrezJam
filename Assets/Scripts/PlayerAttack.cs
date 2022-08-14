@@ -86,7 +86,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !gameIsPaused)
         {
             OpenReloadBar();
         }
