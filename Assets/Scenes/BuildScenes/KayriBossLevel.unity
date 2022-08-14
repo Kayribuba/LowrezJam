@@ -343,6 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 119246992}
+  - component: {fileID: 119246997}
   - component: {fileID: 119246991}
   - component: {fileID: 119246994}
   - component: {fileID: 119246990}
@@ -646,6 +647,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &119246997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119246989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db675ad1fdc224b4796a12da1418baca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackout: {fileID: 4089204228882847317, guid: e5b9577ae28d25f459bf898c1d0c0097, type: 3}
 --- !u!1 &161597778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2838,10 @@ PrefabInstance:
     - target: {fileID: 1115307287875724104, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
       propertyPath: maxWater
       value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115307287875724104, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
+      propertyPath: fireCooldown
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 1115307287875724104, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
       propertyPath: waterProjectile.Array.data[0]
