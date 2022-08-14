@@ -10,6 +10,7 @@ public class PlayerHealthScript : MonoBehaviour
     [SerializeField] GameObject DieAnimation;
     [SerializeField] Slider HealthBar;
     [SerializeField] int maxHealth = 6;
+    [SerializeField] AudioSource ASH;
     [SerializeField] Transform CP;
 
     int health;
@@ -30,6 +31,7 @@ public class PlayerHealthScript : MonoBehaviour
     public void RecieveDamage(int damage)
     {
         health -= damage;
+        ASH.Play();
 
         if(health <= 0)
         {
