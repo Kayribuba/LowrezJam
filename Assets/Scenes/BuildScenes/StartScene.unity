@@ -1160,12 +1160,16 @@ MonoBehaviour:
     songToPlay: {fileID: 8300000, guid: f919853a511bba1468cb077fba9e7708, type: 3}
   - isLooping: 1
     levelBuildIndexFrom: 1
-    levelBuildIndexTo: 1
+    levelBuildIndexTo: 2
     songToPlay: {fileID: 8300000, guid: fd806fca9812a4545b58fa1abc0cf3e9, type: 3}
   - isLooping: 1
-    levelBuildIndexFrom: 2
-    levelBuildIndexTo: 2
+    levelBuildIndexFrom: 3
+    levelBuildIndexTo: 3
     songToPlay: {fileID: 8300000, guid: bdd7b7e8c628bd54b9708844ed23bc19, type: 3}
+  - isLooping: 1
+    levelBuildIndexFrom: 4
+    levelBuildIndexTo: 4
+    songToPlay: {fileID: 8300000, guid: f919853a511bba1468cb077fba9e7708, type: 3}
   audioSource: {fileID: 1012011273}
 --- !u!4 &1012011275
 Transform:
