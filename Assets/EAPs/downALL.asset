@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPatern:
   - directionsToAttack: 030000000600000007000000
-    waitAfter: 0.5
+    waitAfter: 0.9

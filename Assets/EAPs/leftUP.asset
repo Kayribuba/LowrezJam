@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: leftUP
   m_EditorClassIdentifier: 
   attackPatern:
-  - directionsToAttack: 000000000200000004000000
+  - directionsToAttack: 0000000002000000040000000600000005000000
     waitAfter: 1
