@@ -31,7 +31,12 @@ public class PlayerHealthScript : MonoBehaviour
     public void RecieveDamage(int damage)
     {
         health -= damage;
-        ASH.Play();
+        if (ASH != null)
+        {
+        
+            ASH.Play();
+
+        }
 
         if(health <= 0)
         {

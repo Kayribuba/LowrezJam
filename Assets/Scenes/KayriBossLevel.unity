@@ -422,33 +422,57 @@ MonoBehaviour:
   - barrelGO: {fileID: 267158441}
     PAP:
     - ap: {fileID: 11400000, guid: 97cbc758819674f46872ef306c74ddb0, type: 2}
-    - ap: {fileID: 11400000, guid: ea94e908bb6cac64fb58c2e9c8141b4e, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: c3b08f5b9d869d14480ebde6b922b8a1, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
     - ap: {fileID: 11400000, guid: bf8626a20be26594e9081647910a9978, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: ea94e908bb6cac64fb58c2e9c8141b4e, type: 2}
   - barrelGO: {fileID: 1953968065}
     PAP:
     - ap: {fileID: 11400000, guid: 92a33ef9d01fe0946973be729189a41b, type: 2}
-    - ap: {fileID: 11400000, guid: a0690ea07dba1c4488c54bc60c4fa0f0, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: ff5bae4321b7533408f84403714d6540, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
     - ap: {fileID: 11400000, guid: b5adfa3131480404d9c45122f6bb65ed, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: a0690ea07dba1c4488c54bc60c4fa0f0, type: 2}
   - barrelGO: {fileID: 1671597811}
     PAP:
     - ap: {fileID: 11400000, guid: 97cbc758819674f46872ef306c74ddb0, type: 2}
-    - ap: {fileID: 11400000, guid: ea94e908bb6cac64fb58c2e9c8141b4e, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: f90297976722a5147ab6cce8928b619c, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
     - ap: {fileID: 11400000, guid: b5adfa3131480404d9c45122f6bb65ed, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: ea94e908bb6cac64fb58c2e9c8141b4e, type: 2}
   - barrelGO: {fileID: 234818973}
     PAP:
     - ap: {fileID: 11400000, guid: 97cbc758819674f46872ef306c74ddb0, type: 2}
-    - ap: {fileID: 11400000, guid: a0690ea07dba1c4488c54bc60c4fa0f0, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: 9235681d7fbec3a4b8fca7219798eae1, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
     - ap: {fileID: 11400000, guid: b5adfa3131480404d9c45122f6bb65ed, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: a0690ea07dba1c4488c54bc60c4fa0f0, type: 2}
   - barrelGO: {fileID: 184761634}
     PAP:
     - ap: {fileID: 11400000, guid: 92a33ef9d01fe0946973be729189a41b, type: 2}
-    - ap: {fileID: 11400000, guid: ea94e908bb6cac64fb58c2e9c8141b4e, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: 7f5d405f7d4a9f44e8195bc0b95a266f, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
     - ap: {fileID: 11400000, guid: b5adfa3131480404d9c45122f6bb65ed, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: ea94e908bb6cac64fb58c2e9c8141b4e, type: 2}
   - barrelGO: {fileID: 1033847261}
     PAP:
     - ap: {fileID: 11400000, guid: 97cbc758819674f46872ef306c74ddb0, type: 2}
-    - ap: {fileID: 11400000, guid: a0690ea07dba1c4488c54bc60c4fa0f0, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: c3b08f5b9d869d14480ebde6b922b8a1, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
     - ap: {fileID: 11400000, guid: e66ec6d49164e7641907ef0769235349, type: 2}
+    - ap: {fileID: 11400000, guid: d94425d41a6e207468c5e70544b8a71c, type: 2}
+    - ap: {fileID: 11400000, guid: a0690ea07dba1c4488c54bc60c4fa0f0, type: 2}
   projectiles:
   - {fileID: 493583814799383413, guid: 0c70882a8dac6d348be397328fc1682a, type: 3}
   phase: 0
@@ -500,10 +524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5bf1e52246b5c44a7b9c6959a75c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tresholds: 2800000014000000
+  tresholds: 500000004b00000037000000320000001e00000019000000
   animator: {fileID: 119246996}
   AS: {fileID: 119246995}
-  maxHealth: 60
+  maxHealth: 100
   destroyAfterDeath: 0
   health: 0
 --- !u!82 &119246995
@@ -518,7 +542,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5f225426092c701429f679f7ac247860, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.152
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1242,6 +1266,107 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &839176662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1115307287875724108, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
+  m_PrefabInstance: {fileID: 2789152828401276596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &839176672
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839176662}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c7c08168a0b7e3b438410dcf8a09d950, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &949064146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,6 +1912,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 828611829427827793, guid: 7fe0402be7ffb0746a6eb7ca013370f7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 828611829427827793, guid: 7fe0402be7ffb0746a6eb7ca013370f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 828611829427827793, guid: 7fe0402be7ffb0746a6eb7ca013370f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 828611829427827793, guid: 7fe0402be7ffb0746a6eb7ca013370f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 828611829427827793, guid: 7fe0402be7ffb0746a6eb7ca013370f7, type: 3}
       propertyPath: m_SortingOrder
       value: -2
       objectReference: {fileID: 0}
@@ -1908,6 +2049,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7322441049329905752, guid: c523aee4ce1c73245a9c184b2a6150e6, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322441049329905752, guid: c523aee4ce1c73245a9c184b2a6150e6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322441049329905752, guid: c523aee4ce1c73245a9c184b2a6150e6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322441049329905752, guid: c523aee4ce1c73245a9c184b2a6150e6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5283019
+      objectReference: {fileID: 0}
     - target: {fileID: 7322441049329905752, guid: c523aee4ce1c73245a9c184b2a6150e6, type: 3}
       propertyPath: m_SortingOrder
       value: -2
@@ -2433,6 +2590,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8126074690262119377, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
+      propertyPath: ASH
+      value: 
+      objectReference: {fileID: 839176672}
     - target: {fileID: 8126074690262119377, guid: 888c78cfa7b59d04dbea60ab7364b920, type: 3}
       propertyPath: HealthBar
       value: 
