@@ -12,7 +12,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] GameObject pauseCanvas;
 
     public event EventHandler<bool> GamePauseEvent;
-    public bool gameIsPaused { get; private set; } = true;
+    public bool gameIsPaused { get; private set; }
 
     int currentSceneIndex;
     public float targetEndRealTime = float.MaxValue;
@@ -42,18 +42,15 @@ public class GameManagerScript : MonoBehaviour
             //ReloadLevel();
             Respawn();
         }
-            
 
         if (!gameEnded)
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
             {
                 if (gameIsPaused)
                     UnPauseGame();
                 else
                     PauseGameCanvas();
-
-                gameIsPaused = !gameIsPaused;
             } 
         }
     }
@@ -113,6 +110,7 @@ public class GameManagerScript : MonoBehaviour
         {
             pauseCanvas.SetActive(true);
         }
+        gameIsPaused = true;
         GamePauseEvent?.Invoke(this, true);
         Time.timeScale = 0;
         AudioListener.pause = true;
@@ -130,6 +128,7 @@ public class GameManagerScript : MonoBehaviour
             pauseCanvas.SetActive(false);
         }
         GamePauseEvent?.Invoke(this, false);
+        gameIsPaused = false;
         Time.timeScale = 1;
         AudioListener.pause = false;
     }
