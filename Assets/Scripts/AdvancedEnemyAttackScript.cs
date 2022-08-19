@@ -32,7 +32,7 @@ public class AdvancedEnemyAttackScript : MonoBehaviour
     void Start()
     {
         if (FindObjectOfType<GridSizer>() != null)
-            gridSize = FindObjectOfType<GridSizer>().GetGridSize();
+            gridSize = FindObjectOfType<GridSizer>().GetGridSize();//gridSizer'ý al
         else
         {
             Debug.Log("Grid size nerde lan yok diye grid sizeyi 0.15625f yabdým");
@@ -40,20 +40,28 @@ public class AdvancedEnemyAttackScript : MonoBehaviour
         }
 
         HealthScript = GetComponent<StationaryEnemyHealthScript>();
-        HealthScript.PhaseChangedEvent += HealthScript_PhaseChangedEvent;
+        HealthScript.PhaseChangedEvent += HealthScript_PhaseChangedEvent;//healthScript'i al, phase eventine abone ol
 
         targetTimes = new float[barrels.Length];
-        EAPSINDEXES = new int[barrels.Length];
+        EAPSINDEXES = new int[barrels.Length];//Arrayleri oluþtur
+
+        foreach(AEASBarrel barrel in barrels)//barrellerin yerini gride uygun hale getir
+        {
+            Vector2 barrelCorrectorVector = barrel.barrelGO.transform.position;
+            barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
+            barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
+            barrel.barrelGO.transform.position = barrelCorrectorVector;
+        }
     }
 
-    void HealthScript_PhaseChangedEvent(object sender, int e)
+    void HealthScript_PhaseChangedEvent(object sender, int e)//abone olunan eventin metodu (phase deðiþince çalýþýyo, e güncel phase)
     {
         phase = e - 1;
     }
 
     void Update()
     {
-        if (oldPhase != phase)
+        if (oldPhase != phase)//phase deðiþtiyse herþeyi sýfýrla ki gereksiz beklemesin
         {
             for (int i = 0; i < barrels.Length; i++)
             {
@@ -66,16 +74,16 @@ public class AdvancedEnemyAttackScript : MonoBehaviour
 
         for (int i = 0; i < targetTimes.Length; i++)
         {
-            int eapsIndex = EAPSINDEXES[i];
             float t = targetTimes[i];
-            AEASBarrel barrel = barrels[i];
 
-
-            if (t <= Time.time)
+            if (t <= Time.time)//herhangi barrelin vakti geldiyse
             {
+                int eapsIndex = EAPSINDEXES[i];
+                AEASBarrel barrel = barrels[i];
+
                 EAPStruct currentStruct;
 
-                if (phase <= barrel.PAP.Length - 1 && phase >= 0)
+                if (phase <= barrel.PAP.Length - 1 && phase >= 0)//barrelde phaseye uygun attack pattern varsa...
                 {
                     PhasedAttackPatterns p = barrel.PAP[phase];
 
@@ -85,46 +93,41 @@ public class AdvancedEnemyAttackScript : MonoBehaviour
                         eapsIndex = 0;
                     }
 
-                    currentStruct = p.ap.attackPatern[eapsIndex];
+                    currentStruct = p.ap.attackPatern[eapsIndex];//phaseye uygun attack patterni currentStruct'a koy
                 }
-                else
+                else//...yoksa
                 {
-                    currentStruct = new EAPStruct { directionsToAttack = null, waitAfter = 1 };
+                    currentStruct = new EAPStruct { directionsToAttack = null, waitAfter = 1 };// currentStruct'ý null bi deðere eþitle
                 }
 
                 //AAAAAAAAAAAAAA
 
-                if (currentStruct.directionsToAttack != null)
+                if (currentStruct.directionsToAttack != null)//currentStruct null deðilse
                 {
-                    List<Dir> usedDirs = new List<Dir>();
+                    List<Dir> usedDirs = new List<Dir>();//ayný Dir'i tekrar kullanmamak için liste aç
                     System.Random rand = new System.Random();
 
                     foreach (Dir attackDir in currentStruct.directionsToAttack)
                     {
-                        if (!usedDirs.Contains(attackDir) && projectiles != null)
+                        if (!usedDirs.Contains(attackDir) && projectiles != null)//ayný Dir deðilse ve atýcak mermi varsa
                         {
-                            Vector2 barrelCorrectorVector = barrel.barrelGO.transform.position;
-                            barrelCorrectorVector.x -= barrelCorrectorVector.x % gridSize;
-                            barrelCorrectorVector.y -= barrelCorrectorVector.y % gridSize;
-                            barrel.barrelGO.transform.position = barrelCorrectorVector;
+                            GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], barrel.barrelGO.transform.position, Quaternion.identity);//mermiyi oluþtur...
+                            bulletInstantiated.GetComponent<EnemyBulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir), gridSize);//...hareket ettir...
+                            bulletInstantiated.GetComponent<EnemyBulletScript>().SetParentGO(gameObject);//...parentini ayarla.
 
-                            GameObject bulletInstantiated = Instantiate(projectiles[rand.Next(0, projectiles.Length)], barrel.barrelGO.transform.position, Quaternion.identity);
-                            bulletInstantiated.GetComponent<EnemyBulletScript>().SetFlightVector(DirectionEnum.GetVector2DirFromEnum(attackDir), gridSize);
-                            bulletInstantiated.GetComponent<EnemyBulletScript>().SetParentGO(gameObject);
-
-                            usedDirs.Add(attackDir);
+                            usedDirs.Add(attackDir);//bu dir artýk kullanýldý (ayný anda iki kez atmamasý için, waitTime geçtikten sonra bu silinicek)
                         }
                     }
                 }
 
-                if (phase > barrel.PAP.Length - 1 || phase < 0)
+                if (phase > barrel.PAP.Length - 1 || phase < 0)//phasenin sonuna geldiysem yada error varsa
                     EAPSINDEXES[i] = 0;
-                else if (eapsIndex == barrel.PAP[phase].ap.attackPatern.Length - 1)
+                else if (eapsIndex == barrel.PAP[phase].ap.attackPatern.Length - 1)//attackPatternin sonuna geldiysem
                     EAPSINDEXES[i] = 0;
                 else
-                    EAPSINDEXES[i]++;
+                    EAPSINDEXES[i]++;//yoksa arttýr
 
-                targetTimes[i] = currentStruct.waitAfter + Time.time;
+                targetTimes[i] = currentStruct.waitAfter + Time.time;//tekrar ateþ edilecek zaman þu anki zamanýn waitTime kadar sonrasý
             }
 
             //AAAAAAAAAAAAAA

@@ -11,19 +11,31 @@ public class PlayerAnimationControllerScript : MonoBehaviour
     string currentAnimationPlaying = "";
 
     Animator animator;
-
+    int[] decoderArray = new int[8];
     bool isMoving;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        decoderArray[(int)Dir.Left] = 0;
+        decoderArray[(int)Dir.TopLeft] = 1;
+        decoderArray[(int)Dir.Up] = 2;
+        decoderArray[(int)Dir.TopRight] = 3;
+        decoderArray[(int)Dir.Right] = 4;
+        decoderArray[(int)Dir.BottomRight] = 5;
+        decoderArray[(int)Dir.Down] = 6;
+        decoderArray[(int)Dir.BottomLeft] = 7;
+
+        //foreach (int a in decoderArray)
+        //    Debug.Log(a);
     }
 
     public string GetAnimationNameFromDir(Vector2 vector)
     {
         Dir vectorsDir = Functions.Vector2ToDir(vector);
 
-        return animNames[(int)vectorsDir];
+        return animNames[decoderArray[(int)vectorsDir]];
     }
     public void PlayAnimationOfName(string nameOfAnim)
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Dir { Left, TopLeft, Up, TopRight, Right, BottomRight, Down, BottomLeft }
+public enum Dir { Left, Right, Up, Down, TopLeft, TopRight, BottomLeft, BottomRight }
 
 public class DirectionEnum : MonoBehaviour
 {
