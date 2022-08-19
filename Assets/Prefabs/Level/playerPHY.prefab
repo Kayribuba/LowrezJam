@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 6136472197228440879}
   - component: {fileID: 6136472197228440877}
   - component: {fileID: 6136472197228440872}
+  - component: {fileID: 4280035296702310039}
   - component: {fileID: 3068889795032628660}
   - component: {fileID: 6136472197228440876}
   - component: {fileID: 3455108755350658797}
@@ -1026,7 +1027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f42e857a88eb48a6cb1f952a5493c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 6136472197228440876}
   ReloadIndicatorBar: {fileID: 1428621517181586134}
   WaterBar: {fileID: 274179363}
   maxWater: 10
@@ -1054,6 +1054,27 @@ MonoBehaviour:
   bg: {fileID: 0}
   interval: 0.03
   ReloadSpeedPercent: 50
+--- !u!114 &4280035296702310039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136472197228440873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb9f3c4cfa832741b9ec3c2dda25b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animNames:
+  - itfaiyeLeft
+  - itfaiyeTopLeft
+  - itfaiyeUp
+  - itfaiyeTopRight
+  - itfaiyeRight
+  - itfaiyeBotRight
+  - itfaiyeDown2
+  - itfaiyeBotLeft
 --- !u!114 &3068889795032628660
 MonoBehaviour:
   m_ObjectHideFlags: 0

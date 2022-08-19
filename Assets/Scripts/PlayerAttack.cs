@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(SnappedVector2Script))]
+[RequireComponent(typeof(PlayerAnimationControllerScript))]
+
+
 public class PlayerAttack : MonoBehaviour
 {
     public event EventHandler<bool> ReloadEvent;
-
-    public Animator animator;
 
     [SerializeField] Slider ReloadIndicatorBar;
     [SerializeField] Slider WaterBar;
@@ -21,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject[] waterProjectile;
     [SerializeField] AudioSource sfx;
     [SerializeField] float fireCooldown = 0.5f;
+
+    PlayerAnimationControllerScript pacs;
 
     float reloadTimeFragment;
     float reloadIndicatorTargetTime = float.MaxValue;
@@ -47,6 +50,8 @@ public class PlayerAttack : MonoBehaviour
         reloadTimeFragment = reloadTime / (ReloadIndicatorBar.maxValue + 1);
 
         ReloadIndicatorBar.value = 0;
+
+        pacs = GetComponent<PlayerAnimationControllerScript>();
     }
     void GM_GamePauseEvent(object sender, bool e)
     {
@@ -60,7 +65,8 @@ public class PlayerAttack : MonoBehaviour
         {
             snappedWeaponVector = GetComponent<SnappedVector2Script>().Get8WaySnappedVector2();
 
-            SetBools(snappedWeaponVector);
+            pacs.PlayAnimationOfName(pacs.GetAnimationNameFromDir(snappedWeaponVector));
+            //SetBools(snappedWeaponVector);
 
             Barrel.transform.position = Functions.AddVector2sTogether(transform.position, snappedWeaponVector);
 
@@ -95,6 +101,7 @@ public class PlayerAttack : MonoBehaviour
             CloseReloadBar();
         }
     }
+
 
     public void FullWater()
     {
@@ -159,23 +166,24 @@ public class PlayerAttack : MonoBehaviour
         water -= waterAmountToConsume;
         WaterBar.value = water;
     }
-    void SetBools(Vector2 vector)
-    {
-        Dir boolToLeaveActive = Functions.Vector2ToDir(vector);
+    //void SetBools(Vector2 vector)
+    //{
+    //    Dir boolToLeaveActive = Functions.Vector2ToDir(vector);
 
-        for (int i = 0; i < 8; i++)
-        {
-            if (boolToLeaveActive != (Dir)i)
-            {
-                Dir annen = (Dir)i;
-                string name = annen.ToString();
+    //    for (int i = 0; i < 8; i++)
+    //    {
+    //        if (boolToLeaveActive != (Dir)i)
+    //        {
+    //            Dir annen = (Dir)i;
+    //            string name = annen.ToString();
 
-                animator.SetBool(name, false);
-            }
-            else
-                animator.SetBool(boolToLeaveActive.ToString(), true);
-        }
-    }
+    //            animator.SetBool(name, false);
+    //        }
+    //        else
+    //            animator.SetBool(boolToLeaveActive.ToString(), true);
+    //    }
+    //}
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

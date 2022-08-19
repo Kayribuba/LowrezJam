@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerAnimationControllerScript))]
 public class PlayerMovement : MonoBehaviour
 {
     public float gridSize;
@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float interval = 0.01f;
     [SerializeField][Range(0,100)] float ReloadSpeedPercent = 50f;
 
-    Animator animator;
-    Vector2 bgTopLeft;
+    PlayerAnimationControllerScript pacs;
+
     Vector2 targetPosition;
     float targetTime = float.MinValue;
     bool isReloading;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         gridSize = bg.GetComponent<GridSizer>().GetGridSize();
         GetComponent<PlayerAttack>()?.SetGridSize(gridSize);
 
-        animator = GetComponent<Animator>();
+        pacs = GetComponent<PlayerAnimationControllerScript>();
 
         //bgTopLeft.x = bg.transform.position.x - bg.transform.lossyScale.x / 2;
         //bgTopLeft.y = bg.transform.position.y + bg.transform.lossyScale.y / 2;
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = targetPosition;
             targetTime = Time.time + speedInterval;
 
-            animator.SetBool("isMoving", isMoving);
+            pacs.SetIsMoving(isMoving);
         }
     }
 

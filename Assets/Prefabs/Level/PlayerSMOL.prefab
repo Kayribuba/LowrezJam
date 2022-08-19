@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 8475913009861267592}
   - component: {fileID: 6508685397804681236}
   - component: {fileID: 2286724772150075751}
+  - component: {fileID: 7021409268418359563}
   m_Layer: 0
   m_Name: PlayerSMOL
   m_TagString: Player
@@ -345,16 +346,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f42e857a88eb48a6cb1f952a5493c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1115307287875724105}
   ReloadIndicatorBar: {fileID: 5296239010039366835}
-  WaterBar: {fileID: 6508685399177014086}
-  maxWater: 10
+  WaterBar: {fileID: 0}
+  maxWater: 9999
   reloadTime: 1.5
   GM: {fileID: 0}
   Barrel: {fileID: 1115307287329259575}
   waterProjectile:
-  - {fileID: 493583814799383413, guid: 87cfe7a115010f346b38d3c360c25773, type: 3}
-  - {fileID: 3159707325091022634, guid: 8927a527c20d8ef45b2726f94176e0f6, type: 3}
+  - {fileID: 493583814799383413, guid: 7f5d95e03ce84634baabb38152ce40fe, type: 3}
+  - {fileID: 3159707325091022634, guid: 433fc0c34ce9c2846905f57bc7c92f50, type: 3}
   sfx: {fileID: 8475913009861267592}
   fireCooldown: 0.31
 --- !u!114 &1115307287875724109
@@ -389,6 +389,7 @@ MonoBehaviour:
   DieAnimation: {fileID: 3171203673496137895, guid: b24b22811f1656241bc8ec715613b960, type: 3}
   HealthBar: {fileID: 6508685399711203348}
   maxHealth: 6
+  ASH: {fileID: 0}
   CP: {fileID: 0}
 --- !u!95 &1115307287875724105
 Animator:
@@ -400,7 +401,7 @@ Animator:
   m_GameObject: {fileID: 1115307287875724108}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ae7b2f98930c53e419b4030f5684a1a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7fe2e50e40bc76a4d93a432701db37b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -543,6 +544,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d1f6b0efd6d404592386214b855b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7021409268418359563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115307287875724108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb9f3c4cfa832741b9ec3c2dda25b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animNames:
+  - SmallLeft
+  - SmallTopLeft
+  - SmallTop
+  - SmallTopRight
+  - SmallRight
+  - SmallBottomRight
+  - SmallBottom
+  - SmallBottomLeft
 --- !u!1 &3018752839887659169
 GameObject:
   m_ObjectHideFlags: 0
